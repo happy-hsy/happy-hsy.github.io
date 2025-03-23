@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Haosen Yang</title>
+
+    <meta name="author" content="Haosen Yang">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  Haosen Yang
+                </p>
+                <p> I'm a Ph.D. student at the People-Centred AI Institute <a href="https://www.surrey.ac.uk/artificial-intelligence">(PAI)</a> and the Centre for Vision, Speech, and Signal Processing <a href="https://www.surrey.ac.uk/centre-vision-speech-signal-processing/">(CVSSP)</a> at <a href="https://www.surrey.ac.uk/" >the University of Surrey</a>.
+                I conduct research within the Universal Perception  Lab <a href="https://x-up-lab.github.io/">(UP)</a> under the supervision of <a href="https://x-up-lab.github.io/">Dr. Xiatian Zhu</a>.              
+                </p>
+
+                <p>
+                My research interests primarily lie in Human-Centric Spatial Intelligence. My goal is to assist humans in understanding, digitizing, and manipulating the physical world while seamlessly bridging reality with the metaverse to enhance everyday interactions.
+                </p>
+                <p>
+                Feel free to email me if you're interested in my work or exploring potential collaborations.
+                </p>
+
+                <p style="text-align:center">
+                  <a href="haosen.yang.6@gmail.com">Email</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?user=H8uoAdMAAAAJ&hl=zh-CN">Google Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/happy-hsy">Github</a>
+                </p>
+              </td>
+              <td style="padding: 20px; width: 35%; max-width: 250px; text-align: center; vertical-align: middle;">
+                <a href="images/yhs_avatar.jpeg">
+                    <img src="images/yhs_avatar.jpeg" alt="Profile Photo" 
+                         style="width: 100%; max-width: 200px; height: auto; object-fit: cover; 
+                                border-radius: 12px; border: 3px solid #ccc; 
+                                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s ease-in-out;"
+                         class="hoverZoomLink">
+                </a>
+            </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:16px;width:100%;vertical-align:middle">
+              <h2>Research (Selected Publications)</h2>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- Common image box size (adjust height as needed) -->
+          <style>
+            .image-box {
+              position: relative;
+              width: 100%;
+              aspect-ratio: 1 / 1; /* makes square box */
+              overflow: hidden;
+              background-color: #f2f2f2; /* fallback background */
+            }
+
+            .image-box img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            }
+
+            .hover-img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0;
+              transition: opacity 0.3s ease-in-out;
+              z-index: 2;
+            }
+
+            .pub-image-cell {
+              padding: 16px;
+              width: 180px;
+              vertical-align: top;
+            }
+
+            .pub-text-cell {
+              padding: 8px;
+              vertical-align: top;
+            }
+          </style>
+
+          <!-- === ROW 1 (Static image) === -->
+          <tr>
+            <td class="pub-image-cell">
+              <div class="image-box">
+                <img src="images/snow_cat_4k.png" alt="Snow Cat">
+              </div>
+            </td>
+            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
+              <a href="https://arxiv.org/pdf/2411.18552/">
+                <span class="papertitle">
+                  FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion
+                </span>
+              </a>
+              <br>
+              <strong>Haosen Yang</strong>,
+              <a href="https://www.adrianbulat.com/">Adrian Bulat</a>,
+              <a href="https://scholar.google.ca/citations?user=faSfTxQAAAAJ&hl=en">Isma Hadji</a>,
+              <a href="https://people.cs.rutgers.edu/~hxp1/">Hai X. Pham</a>,
+              <a href="https://x-up-lab.github.io/">Xiatian Zhu</a>,
+              <a href="https://ytzimiro.github.io/">Georgios Tzimiropoulos</a>,
+              <a href="http://www.braismartinez.org/">Brais Martinez</a>
+              <br>
+              <em>CVPR</em>, 2025
+              <br>
+              <a href="https://HaosenYang.github.io/">project page</a> /
+              <a href="https://arxiv.org/pdf/2411.18552">arXiv</a> /
+              <a href="https://HaosenYang.github.io/">code</a>
+              <p></p>
+            </td>
+          </tr>
+
+          <!-- === ROW 2 (Hover image) === -->
+          <tr onmouseover="ibot_start()" onmouseout="ibot_stop()">
+            <td class="pub-image-cell">
+              <div class="image-box">
+                <!-- Hover image -->
+                <img id="lpm_image" src="images/stump_depth.png" alt="Depth" class="hover-img">
+                <!-- Base image -->
+                <img src="images/stump.png" alt="RGB">
+              </div>
+            </td>
+            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
+              <a href="https://arxiv.org/abs/2406.04251">
+                <span class="papertitle">
+                  Improving Gaussian Splatting with Localized Points Management
+                </span>
+              </a>
+              <br>
+              <strong>Haosen Yang*</strong>,
+              <a href="https://HaosenYang.github.io/">Chenhao Zhang*</a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=kH-E48MAAAAJ">Wenqing Wang*</a>,
+              <a href="https://marcovolino.github.io/">Marco Volino</a>,
+              <a href="https://cvssp.org/Personal/AdrianHilton/Welcome.html">Adrian Hilton</a>,
+              <a href="https://lzrobots.github.io/">Li Zhang</a>
+              <a href="https://x-up-lab.github.io//">Xiatian Zhu</a>
+              <br>
+              <em>CVPR</em>, 2025
+              <br>
+              <a href="https://HaosenYang.github.io/">project page</a> /
+              <a href="https://arxiv.org/abs/2406.04251">arXiv</a> /
+              <a href="https://github.com/Surrey-UP-Lab/GS-LPM">code</a>
+            </td>
+             <!-- === JS for hover === -->
+            <script type="text/javascript">
+              function ibot_start() {
+                document.getElementById('lpm_image').style.opacity = "1";
+              }
+
+              function ibot_stop() {
+                document.getElementById('lpm_image').style.opacity = "0";
+              }
+
+              window.addEventListener('DOMContentLoaded', ibot_stop);
+            </script>
+          </tr>
+
+          <tr>
+            <td class="pub-image-cell">
+              <div class="image-box">
+                <img src="images/avgs.jpg" alt="Snow Cat">
+              </div>
+            </td>
+            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
+              <a href="https://arxiv.org/pdf/2406.08920">
+                <span class="papertitle">
+                  AV-GS: Learning Material and Geometry Aware Priors for Novel View Acoustic Synthesis
+                </span>
+              </a>
+              <br>
+              <a href="https://swapb94.github.io/">Swapnil Bhosale</a>
+              <strong>Haosen Yang</strong>,
+              <a href="https://dipteshkanojia.github.io/">Diptesh Kanojia</a>,
+              <a href="https://jiankangdeng.github.io/">Jiankang Deng</a>,
+              <a href="https://x-up-lab.github.io/">Xiatian Zhu</a>
+              <br>
+              <em>NIPS</em>, 2024
+              <br>
+              <a href="https://HaosenYang.github.io/">project page</a> /
+              <a href="https://arxiv.org/pdf/2406.08920">arXiv</a> /
+              <a href="https://github.com/Surrey-UP-Lab/AV-GS/">code</a>
+              <p></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pub-image-cell">
+              <div class="image-box">
+                <img src="images/regionspot.png" alt="Snow Cat">
+              </div>
+            </td>
+            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
+              <a href="https://arxiv.org/pdf/2311.01373">
+                <span class="papertitle">
+                  Recognize Any Regions
+                </span>
+              </a>
+              <br>
+              <strong>Haosen Yang</strong>,
+              <a href="https://machuofan.github.io/">Chuofan Ma</a>,
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=Hmgqwf4AAAAJ&view_op=list_works&sortby=pubdate">Bin Wen</a>,
+              <a href="https://enjoyyi.github.io/">Yi Jiang</a>,
+              <a href="https://shallowyuan.github.io/">Zehuan Yuan</a>,
+              <a href="https://x-up-lab.github.io/">Xiatian Zhu</a>
+              <br>
+              <em>NIPS</em>, 2024
+              <br>
+              <a href="https://HaosenYang.github.io/">project page</a> /
+              <a href="https://arxiv.org/pdf/2311.0137">arXiv</a> /
+              <a href="https://github.com/Surrey-UP-Lab/RegionSpot/">code</a>
+              <p></p>
+            </td>
+          </tr>
+
+
+         
+
+        </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+  
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  Website template from  <a href="https://jonbarron.info/">Jon Barron</a>. 
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
