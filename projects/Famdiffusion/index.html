@@ -1,163 +1,68 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Improving Gaussian Splatting with Localized Points Management">
-  <meta name="keywords" content="neural fields, 6DoF, Novel View Synthesis, MR/XR, computer vision">
+  <meta name="description" content="Fam diffusion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Improving Gaussian Splatting with Localized Points Management</title>
+  <title>Fam diffusion</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" href="./static/css/before_after.css">
-  <!-- <link rel="icon" href="./static/images/cameraicon.svg"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
+  <!-- Academicons (for arXiv) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-  <link rel="stylesheet" href="./static/css/magnify.css">
-  <script src="./static/js/jquery-2.2.4.min.js"></script>
-  <script src="./static/js/jquery.magnify.js"></script>
+  <!-- Font Awesome (for GitHub) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
-  <script src="twentytwenty/js/jquery-3.2.1.min.js" defer type="text/javascript"></script>
-  <script src="twentytwenty/js/jquery.event.move.js" defer type="text/javascript"></script>
-  <script src="twentytwenty/js/jquery.twentytwenty.js" defer type="text/javascript"></script>
-  <link rel="stylesheet" href="twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 </head>
 
 <body>
-
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-
-  </div>
-</nav>
-
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="font-size: 2rem; font-weight: bold;">FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion          </h1>
+          <h1 class="title is-1 publication-title" style="font-size: 2rem; font-weight: bold;">
+            FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion
+          </h1>
           <h2 style="font-size: 2rem; font-weight: bold;">CVPR 2025</h2>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Haosen Yang<sup>1,2</sup>,</span>
-            <span class="author-block">
-              Adrian Bulat<sup>1</sup>,</span>
-            <span class="author-block">
-              Isma Hadji<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Hai X. Pham<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Georgios Tzimiropoulos<sup>1,3</sup>,
-            </span>
-            <span class="author-block">
-              Brais Martinez<sup>1</sup>
-            </span>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">Haosen Yang<sup>1,2</sup>,</span>
+            <span class="author-block">Adrian Bulat<sup>1</sup>,</span>
+            <span class="author-block">Isma Hadji<sup>1</sup>,</span>
+            <span class="author-block">Hai X. Pham<sup>1</sup>,</span>
+            <span class="author-block">Xiatian Zhu<sup>1</sup>,</span>
+            <br> 
+            <span class="author-block">Georgios Tzimiropoulos<sup>1,3</sup>,</span>
+            <span class="author-block">Brais Martinez<sup>1</sup></span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Samsung AI Center, Cambridge, UK</span>
             <span class="author-block"><sup>2</sup>University of Surrey, UK</span>
-            <span class="author-block"><sup>2</sup>Queen Mary University, UK</span>
+            <span class="author-block"><sup>3</sup>Queen Mary University, UK</span>
           </div>
           <br>
-          <!-- <p>&nbsp;</p> -->
-          <script>
-            $(document).ready(function() {
-              // var $zoom = $('.zoom').magnify(
-              // //   {
-              // //   magnifiedWidth: 1000,
-              // //   magnifiedHeight: 753
-              // // }
-              // );
-              // $zoom.destroy();
-            });
-          </script>
-<style>
-.magnify > .magnify-lens {
-  width: 130px;
-  height: 130px;
-}
-</style>
-
-<style>
-  /* Style the buttons */
-  .btn {
-    border: none;
-    outline: none;
-    padding: 10px 16px;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 8px;
-  }
-  
-  /* Style the active class, and buttons on mouse-over */
-  .active, .btn:hover {
-    background-color: #666;
-    color: white;
-  }
-
-  /* .twentytwenty-container {
-    min-height: 200px;
-} */
-
-  </style>
-
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2411.18552"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+                <a href="https://arxiv.org/pdf/2411.18552" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
                 </a>
               </span>
-
               <span class="link-block">
-                <a href="https://github.com/Surrey-UP-Lab/GS-LPM"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                <a href="https://github.com/Surrey-UP-Lab/GS-LPM" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  
                   <span>Coming soon</span>
-                  </a>
+                </a>
               </span>
-              <!-- <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a> -->
             </div>
-
           </div>
         </div>
       </div>
@@ -165,25 +70,265 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="Gallery">
   <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Gallery</h2>
+    <div id="gallery-carousel" class="carousel results-carousel">
 
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/2k_4k.jpg" class="glightbox">
+            <img src="./static/images/2k_4k.jpg" alt="2048x4096" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">2048×4096</div>
+      </div>
 
-    
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/2k.jpg" class="glightbox">
+            <img src="./static/images/2k.jpg" alt="2048x2048" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">2048×2048</div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/4k_2k.jpg" class="glightbox">
+            <img src="./static/images/4k_2k.jpg" alt="4096x2048" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">4096×2048</div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/4k.jpg" class="glightbox">
+            <img src="./static/images/4k.jpg" alt="4096x4096" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">4096×4096</div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/2k_1k.jpg" class="glightbox">
+            <img src="./static/images/2k_1k.jpg" alt="1664x2304" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">1664×2304</div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/1k_2k.jpg" class="glightbox">
+            <img src="./static/images/1k_2k.jpg" alt="2304x1664" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">2304×1664</div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/3k.jpeg" class="glightbox">
+            <img src="./static/images/3k.jpeg" alt="3072x3072" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">3072×3072</div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <a href="./static/images/3k_.jpg" class="glightbox">
+            <img src="./static/images/3k_.jpg" alt="3072x3072" class="carousel-img" />
+          </a>
+        </div>
+        <div class="has-text-centered" style="margin-top: 0.5rem;">3072×3072</div>
+      </div>
+
+    </div>
   </div>
 </section>
+<section class="section" id="Abstract">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Diffusion models are proficient at generating high-quality images. They are however effective only when operating at
+        the resolution used during training. Inference at a scaled
+        resolution leads to repetitive patterns and structural distortions. Retraining at higher resolutions quickly becomes
+        prohibitive. Thus, methods enabling pre-existing diffusion
+        models to operate at flexible test-time resolutions are highly
+        desirable. Previous works suffer from frequent artifacts and
+        often introduce large latency overheads. We propose two
+        simple modules that combine to solve these issues. We introduce a Frequency Modulation (FM) module that leverages
+        the Fourier domain to improve the global structure consistency, and an Attention Modulation (AM) module which improves the consistency of local texture patterns, a problem
+        largely ignored in prior works. Our method, coined FAM
+        diffusion, can seamlessly integrate into any latent diffusion
+        model and requires no additional training. Extensive qualitative results highlight the effectiveness of our method in
+        addressing structural and local artifacts, while quantitative
+        results show state-of-the-art performance. Also, our method
+        avoids redundant inference tricks for improved consistency
+        such as patch-based or progressive generation, leading to
+        negligible latency overheads.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="Method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+
+    <div class="has-text-centered">
+      <figure>
+        <img src="./static/images/method.png" alt="Method Overview" style="max-width: 100%; height: auto;">
+        <figcaption class="caption-minimal" style="margin-top: 0.75rem;">
+        Overview of the FAM diffusion. (a) We first generate an image at native resolution, followed by a test-time diffuse-denoise process. We incorporate our Frequency Modulation module and Attention Modulation during high-res denoising to control global structure and fine local texture, respectively. (b) Details of the Frequency Modulation, where we use the Fourier domain to selectively condition low-frequency components during high-res denoising while leaving high-frequency components fully controllable. (c) Details of Attention
+        Modulation, where attention maps from the native image denoising are used to correct the high-res denoising.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .carousel.results-carousel {
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .carousel .card {
+    box-shadow: none;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .carousel .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+  
+  .carousel-img {
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 0;
+    margin: 0 auto;
+    box-shadow: none;
+  }
+  .carousel.results-carousel {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel .card {
+  box-shadow: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel .card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.carousel-img {
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+  </style>
+  
+  <script>
+    bulmaCarousel.attach('#gallery-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      autoplay: false,
+      pauseOnHover: true,
+      duration: 800  // ← transition speed in ms (default is 300)
+    });
+  
+    GLightbox({ selector: '.glightbox' });
+  </script>
+  
+  
+
+<style>
+.gallery-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.02);
+}
+</style>
+
+<script>
+  GLightbox({ selector: '.glightbox' });
+</script>
+
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title" style="text-align: center;">BibTeX</h2>
     <pre><code>@article{yang2024fam,
-      title={FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion},
-      author={Yang, Haosen and Bulat, Adrian and Hadji, Isma and Pham, Hai X and Zhu, Xiatian and Tzimiropoulos, Georgios and Martinez, Brais},
-      journal={arXiv preprint arXiv:2411.18552},
-      year={2024}
-    }</code></pre>
-<p>&nbsp;</p>
-</div>
+  title={{FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion}},
+  author={Yang, Haosen and Bulat, Adrian and Hadji, Isma and Pham, Hai X and Zhu, Xiatian and Tzimiropoulos, Georgios and Martinez, Brais},
+  journal={arXiv preprint arXiv:2411.18552},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+<script>
+  bulmaCarousel.attach('#gallery-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    navigation: true,
+    pagination: false
+  });
+</script>
 
+<script>
+  GLightbox({ selector: '.glightbox' });
+</script>
 </body>
 </html>
