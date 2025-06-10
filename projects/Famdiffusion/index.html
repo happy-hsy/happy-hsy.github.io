@@ -184,14 +184,40 @@
     <div class="has-text-centered">
       <figure>
         <img src="./static/images/method.png" alt="Method Overview" style="max-width: 100%; height: auto;">
-        <figcaption class="caption-minimal" style="margin-top: 0.75rem;">
-        Overview of the FAM diffusion. (a) We first generate an image at native resolution, followed by a test-time diffuse-denoise process. We incorporate our Frequency Modulation module and Attention Modulation during high-res denoising to control global structure and fine local texture, respectively. (b) Details of the Frequency Modulation, where we use the Fourier domain to selectively condition low-frequency components during high-res denoising while leaving high-frequency components fully controllable. (c) Details of Attention
-        Modulation, where attention maps from the native image denoising are used to correct the high-res denoising.
-        </figcaption>
+        <figcaption class="caption-minimal" style="margin-top: 0.75rem; text-align: justify;">
+          Overview of the FAM diffusion. (a) We first generate an image at native resolution, followed by a test-time diffuse-denoise process.
+          We incorporate our Frequency Modulation module and Attention Modulation during high-res denoising to control global structure and fine local texture, respectively.
+          (b) Details of the Frequency Modulation, where we use the Fourier domain to selectively condition low-frequency components during high-res denoising while leaving high-frequency components fully controllable.
+          (c) Details of Attention Modulation, where attention maps from the native image denoising are used to correct the high-res denoising.
+        </figcaption>           
       </figure>
     </div>
   </div>
 </section>
+
+<section class="section" id="Quantitative Results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+    <div class="has-text-centered">
+      <figure>
+        <img src="./static/images/table1.jpg" alt="table1" style="max-width: 100%; height: auto;">         
+      </figure>
+    </div>
+
+    <div class="has-text-centered">
+      <figure>
+        <img src="./static/images/table2.jpg" alt="table1" style="max-width: 100%; height: auto;">         
+      </figure>
+    </div>
+
+    <div class="has-text-centered">
+      <figure>
+        <img src="./static/images/table3.jpg" alt="table1" style="max-width: 100%; height: auto;">         
+      </figure>
+    </div>
+  </div>
+</section>
+
 
 
 <style>
@@ -304,12 +330,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title" style="text-align: center;">BibTeX</h2>
-    <pre><code>@article{yang2024fam,
-  title={{FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion}},
-  author={Yang, Haosen and Bulat, Adrian and Hadji, Isma and Pham, Hai X and Zhu, Xiatian and Tzimiropoulos, Georgios and Martinez, Brais},
-  journal={arXiv preprint arXiv:2411.18552},
-  year={2024}
-}</code></pre>
+    <pre><code>@inproceedings{yang2025fam,
+      title={Fam diffusion: Frequency and attention modulation for high-resolution image generation with stable diffusion},
+      author={Yang, Haosen and Bulat, Adrian and Hadji, Isma and Pham, Hai X and Zhu, Xiatian and Tzimiropoulos, Georgios and Martinez, Brais},
+      booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+      pages={2459--2468},
+      year={2025}
+    }</code></pre>
   </div>
 </section>
 
