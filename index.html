@@ -1,258 +1,530 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Haosen Yang — Human-Centric Spatial Intelligence, 3D/4D Reconstruction, and Generative AI.">
+  <title>Haosen Yang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <form class="terminal" id="mini-terminal" autocomplete="off">
+        <button class="terminal-prompt" type="button" aria-label="Open interactive terminal">HaosenYang<span class="terminal-place">@Surrey</span><span class="terminal-dim">:~$</span></button>
+        <input class="terminal-input" id="terminal-input" type="text" aria-label="Terminal command" placeholder="type help" spellcheck="false">
+        <div class="terminal-output" id="terminal-output" role="status" aria-live="polite"></div>
+      </form>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">menu</button>
+      <div class="nav-links" id="nav-links">
+        <a class="active" href="#home">Home</a>
+        <a href="#publications">Publications</a>
+        <a href="mailto:haosen.yang.6@gmail.com">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <title>Haosen Yang</title>
+  <main class="container" id="home">
+    <aside class="sidebar">
+      <div class="card profile-card">
+        <img class="avatar" src="images/yhs_avatar.jpeg" alt="Portrait of Haosen Yang">
+        <h2>Haosen Yang</h2>
+        <p class="position">Ph.D. Student</p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> University of Surrey, UK</p>
+        <a class="email" href="mailto:haosen.yang.6@gmail.com">haosen.yang.6(at)gmail.com</a>
+        <div class="socials" aria-label="Academic profiles">
+          <a href="https://scholar.google.com/citations?user=H8uoAdMAAAAJ&amp;hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+          <a href="https://github.com/happy-hsy" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:haosen.yang.6@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </aside>
 
-    <meta name="author" content="Haosen Yang">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-  </head>
+    <div class="content">
+      <section class="card intro-card">
+        <div class="card-body">
+          <h1>Haosen Yang <span class="chinese-name">杨浩森</span></h1>
+          <div class="bio">
+            <p>I am a Ph.D. student at the <a href="https://www.surrey.ac.uk/centre-vision-speech-signal-processing/" target="_blank" rel="noreferrer">Centre for Vision, Speech, and Signal Processing (CVSSP)</a> at the <a href="https://www.surrey.ac.uk/" target="_blank" rel="noreferrer">University of Surrey</a>, supervised by <a href="https://x-up-lab.github.io/" target="_blank" rel="noreferrer">Dr. Xiatian Zhu</a>.</p>
+            <p>I am also a Visiting Student at <a href="https://www.imperial.ac.uk/" target="_blank" rel="noreferrer">Imperial College London</a>, hosted by <a href="https://jiankangdeng.github.io/" target="_blank" rel="noreferrer">Dr. Jiankang Deng</a>.</p>
+            <p>My current research focuses on <strong>unlocking the rich intelligence contained in video data</strong> to advance video MLLMs, video generation, World Action Models (WAMs), and Vision-Language-Action models (VLAs). Ultimately, I aim to enable richer interactions between humans and environments, humans and agents, and agents and environments.</p>
+            <aside class="collaboration-callout">
+              <div class="collaboration-label"><span></span> Open to collaborate</div>
+              <p>I am always open to collaborations across <strong>spatial intelligence, video understanding and generation, and embodied AI</strong>. I am particularly interested in connecting video intelligence with real-world perception and action, and welcome collaborations involving <strong>robotic platforms or robot arms</strong>.</p>
+              <a class="collaboration-button" href="mailto:haosen.yang.6@gmail.com">Let’s work together <span aria-hidden="true">→</span></a>
+            </aside>
+          </div>
+        </div>
+      </section>
 
-  <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Haosen Yang
-                </p>
-                <p> I'm a Ph.D. student at the People-Centred AI Institute <a href="https://www.surrey.ac.uk/artificial-intelligence">(PAI)</a> and the Centre for Vision, Speech, and Signal Processing <a href="https://www.surrey.ac.uk/centre-vision-speech-signal-processing/">(CVSSP)</a> at <a href="https://www.surrey.ac.uk/" >the University of Surrey</a>.
-                I conduct research within the Universal Perception  Lab <a href="https://x-up-lab.github.io/">(UP)</a> under the supervision of <a href="https://x-up-lab.github.io/">Dr. Xiatian Zhu</a>.              
-                </p>
+      <section class="card news-card" aria-labelledby="news-title">
+        <h3 class="section-title" id="news-title"><span>01</span> News</h3>
+        <div class="news-list" tabindex="0" aria-label="Latest news, scroll for more">
+          <div class="news-item latest"><time datetime="2026-07">2026.07</time><p><span class="new-badge">NEW</span> Received the <strong>Chinese Government Award for Outstanding Self-Financed Students Abroad</strong>! 🎉</p></div>
+          <div class="news-item"><time datetime="2026-07">2026.07</time><p><strong>VTONeXt</strong>, a project I led, was accepted to SIGGRAPH Asia 2026.</p></div>
+          <div class="news-item"><time datetime="2026-06">2026.06</time><p><a href="#geonext"><strong>GeoNeXt</strong></a> was accepted to ECCV 2026.</p></div>
+          <div class="news-item"><time datetime="2025-06">2025.06</time><p><a href="https://arxiv.org/abs/2406.04251" target="_blank" rel="noreferrer"><strong>LPM</strong></a> received a CVPR 2025 Highlight.</p></div>
+          <div class="news-item"><time datetime="2025-05">2025.05</time><p>Started visiting Imperial College London, hosted by <a href="https://jiankangdeng.github.io/" target="_blank" rel="noreferrer">Dr. Jiankang Deng</a>.</p></div>
+          <div class="news-item"><time datetime="2025-02">2025.02</time><p>Two papers were accepted to CVPR 2025.</p></div>
+          <div class="news-item"><time datetime="2024-12">2024.12</time><p>One paper was accepted to AAAI 2025.</p></div>
+          <div class="news-item"><time datetime="2024-09">2024.09</time><p>Two papers were accepted to NeurIPS 2024.</p></div>
+          <div class="news-item"><time datetime="2024-07">2024.07</time><p>Started a research internship at Samsung in Cambridge, UK.</p></div>
+        </div>
+      </section>
 
-                <p>
-                My research interests primarily lie in Human-Centric Spatial Intelligence. My goal is to assist humans in understanding, digitizing, and manipulating the physical world while seamlessly bridging reality with the metaverse to enhance everyday interactions.
-                </p>
-                <p style="background-color: #fff3cd; padding: 10px; border-radius: 5px;">
-                  I <strong>expect to complete my PhD by the end of this year</strong> and am actively seeking <strong>postdoctoral or full-time research scientist positions</strong> in the areas of <strong>3D/4D reconstruction and generative AI.</strong> If you are interested in collaborating or know of relevant opportunities, I would be glad to connect!
-                </p>
-                
-
-
-
-                <p style="text-align:center">
-                  <a href="haosen.yang.6@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=H8uoAdMAAAAJ&hl=zh-CN">Google Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/happy-hsy">Github</a>
-                </p>
-              </td>
-              <td style="padding: 20px; width: 35%; max-width: 250px; text-align: center; vertical-align: middle;">
-                <a href="images/yhs_avatar.jpeg">
-                    <img src="images/yhs_avatar.jpeg" alt="Profile Photo" 
-                         style="width: 100%; max-width: 200px; height: auto; object-fit: cover; 
-                                border-radius: 12px; border: 3px solid #ccc; 
-                                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s ease-in-out;"
-                         class="hoverZoomLink">
-                </a>
-            </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:16px;width:100%;vertical-align:middle">
-              <h2>Research (Selected Publications)</h2>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <!-- Common image box size (adjust height as needed) -->
-          <style>
-            .image-box {
-              position: relative;
-              width: 100%;
-              aspect-ratio: 1 / 1; /* makes square box */
-              overflow: hidden;
-              background-color: #f2f2f2; /* fallback background */
-            }
-
-            .image-box img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              display: block;
-            }
-
-            .hover-img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              opacity: 0;
-              transition: opacity 0.3s ease-in-out;
-              z-index: 2;
-            }
-
-            .pub-image-cell {
-              padding: 16px;
-              width: 180px;
-              vertical-align: top;
-            }
-
-            .pub-text-cell {
-              padding: 8px;
-              vertical-align: top;
-            }
-          </style>
-
-          <!-- === ROW 1 (Static image) === -->
-          <tr>
-            <td class="pub-image-cell">
-              <div class="image-box">
-                <img src="images/snow_cat_4k.png" alt="Snow Cat">
+      <section class="card details-card">
+        <div class="details-grid">
+          <div class="detail-column">
+            <div class="experience-heading"><h3><span>02</span> Experience</h3><span>drag to explore →</span></div>
+            <div class="logo-carousel">
+              <button class="carousel-prev" type="button" aria-label="Previous affiliation">‹</button>
+              <div class="logo-strip" aria-label="Affiliations" tabindex="0">
+              <figure><a href="https://www.imperial.ac.uk/" target="_blank" rel="noreferrer" title="Imperial College London"><img class="logo-imperial" src="images/badges/imperial.png" alt="Imperial College London"></a><figcaption>2025 – Present</figcaption></figure>
+              <figure><span title="University of Surrey"><img class="logo-surrey" src="images/badges/surrey.svg" alt="University of Surrey"></span><figcaption>2023 – 2026</figcaption></figure>
+              <figure><span title="Samsung"><img class="logo-samsung" src="images/badges/samsung.svg" alt="Samsung"></span><figcaption>2024</figcaption></figure>
+              <figure><span title="ByteDance"><img class="logo-bytedance" src="images/badges/bytedance.svg" alt="ByteDance"></span><figcaption>2022 – 2023</figcaption></figure>
+              <figure><span title="Harbin Institute of Technology"><img class="logo-hit" src="images/badges/hit.png" alt="Harbin Institute of Technology"></span><figcaption>2020 – 2022</figcaption></figure>
+              <figure><span title="Baidu"><img class="logo-baidu" src="images/badges/baidu.svg" alt="Baidu"></span><figcaption>2021</figcaption></figure>
+              <figure><span class="yitu-frame" title="YITU Technology"><img class="logo-yitu" src="images/badges/yitu-nus.png" alt="YITU Technology"></span><figcaption>2021</figcaption></figure>
               </div>
-            </td>
-            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
-              <a href="https://arxiv.org/pdf/2411.18552/">
-                <span class="papertitle">
-                  FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion
-                </span>
-              </a>
-              <br>
-              <strong>Haosen Yang</strong>,
-              <a href="https://www.adrianbulat.com/">Adrian Bulat</a>,
-              <a href="https://scholar.google.ca/citations?user=faSfTxQAAAAJ&hl=en">Isma Hadji</a>,
-              <a href="https://people.cs.rutgers.edu/~hxp1/">Hai X. Pham</a>,
-              <a href="https://x-up-lab.github.io/">Xiatian Zhu</a>,
-              <a href="https://ytzimiro.github.io/">Georgios Tzimiropoulos</a>,
-              <a href="http://www.braismartinez.org/">Brais Martinez</a>
-              <br>
-              <em>CVPR</em>, 2025
-              <br>
-              <a href="https://happy-hsy.github.io/projects/Famdiffusion/">project page</a> /
-              <a href="https://arxiv.org/pdf/2411.18552">arXiv</a> /
-              <a href="https://happy-hsy.github.io/">code</a>
-              <p></p>
-            </td>
-          </tr>
+              <button class="carousel-next" type="button" aria-label="Next affiliation">›</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <!-- === ROW 2 (Hover image) === -->
-          <tr onmouseover="ibot_start()" onmouseout="ibot_stop()">
-            <td class="pub-image-cell">
-              <div class="image-box">
-                <!-- Hover image -->
-                <img id="lpm_image" src="images/stump_depth.png" alt="Depth" class="hover-img">
-                <!-- Base image -->
-                <img src="images/stump.png" alt="RGB">
-              </div>
-            </td>
-            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
-              <a href="https://arxiv.org/abs/2406.04251">
-                <span class="papertitle">
-                  Improving Gaussian Splatting with Localized Points Management
-                </span>
-              </a>
-              <br>
-              <strong>Haosen Yang*</strong>,
-              <a href="https://happy-hsy.github.io/">Chenhao Zhang*</a>,
-              <a href="https://scholar.google.com/citations?hl=en&user=kH-E48MAAAAJ">Wenqing Wang*</a>,
-              <a href="https://marcovolino.github.io/">Marco Volino</a>,
-              <a href="https://cvssp.org/Personal/AdrianHilton/Welcome.html">Adrian Hilton</a>,
-              <a href="https://lzrobots.github.io/">Li Zhang</a>
-              <a href="https://x-up-lab.github.io//">Xiatian Zhu</a>
-              <br>
-              <em>CVPR</em>, 2025 <strong>(Highlight)</strong>
-              <br>
-              <a href="https://happy-hsy.github.io/projects/LPM/">project page</a> /
-              <a href="https://arxiv.org/abs/2406.04251">arXiv</a> /
-              <a href="https://github.com/Surrey-UP-Lab/GS-LPM">code</a>
-            </td>
-             <!-- === JS for hover === -->
-            <script type="text/javascript">
-              function ibot_start() {
-                document.getElementById('lpm_image').style.opacity = "1";
-              }
+      <section class="card publications-card" id="publications">
+        <h3 class="section-title"><span>03</span> Selected publications <a href="https://scholar.google.com/citations?user=H8uoAdMAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">view all →</a></h3>
 
-              function ibot_stop() {
-                document.getElementById('lpm_image').style.opacity = "0";
-              }
+        <article class="publication selected" id="geonext">
+          <div class="pub-image geonext-cover geonext-compare" style="--split:50%">
+            <img class="geonext-depth" src="images/GeoNeXt/depth.png" alt="GeoNeXt depth prediction">
+            <div class="geonext-normal-wrap"><img class="geonext-normal" src="images/GeoNeXt/normal.png" alt="GeoNeXt surface normal prediction"></div>
+            <div class="compare-divider" aria-hidden="true"></div>
+            <small class="modality-label depth-label">Depth</small>
+            <small class="modality-label normal-label">Normal</small>
+            <span>ECCV</span>
+          </div>
+          <div class="pub-copy">
+            <h4>GeoNeXt: Video Generative Models as Geometry Learner</h4>
+            <p class="authors"><strong>Haosen Yang</strong>; Jifei Song; Zhensong Zhang; Xiatian Zhu; Jiankang Deng.</p>
+            <p><em><strong>European Conference on Computer Vision (ECCV)</strong></em> 2026</p>
+          </div>
+        </article>
 
-              window.addEventListener('DOMContentLoaded', ibot_stop);
-            </script>
-          </tr>
+        <article class="publication">
+          <div class="pub-image"><img src="images/snow_cat_4k.png" alt="FAM Diffusion result"><span>CVPR</span></div>
+          <div class="pub-copy">
+            <h4><a href="https://arxiv.org/abs/2411.18552" target="_blank" rel="noreferrer">FAM Diffusion: Frequency and Attention Modulation for High-Resolution Image Generation with Stable Diffusion</a></h4>
+            <p class="authors"><strong>Haosen Yang</strong>; Adrian Bulat; Isma Hadji; Hai X. Pham; Xiatian Zhu; Georgios Tzimiropoulos; Brais Martinez.</p>
+            <p><em><strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</strong></em> 2025</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2411.18552" target="_blank" rel="noreferrer">[Arxiv]</a> <a href="projects/Famdiffusion/">[Project]</a></p>
+          </div>
+        </article>
 
-          <tr>
-            <td class="pub-image-cell">
-              <div class="image-box">
-                <img src="images/avgs.jpg" alt="Snow Cat">
-              </div>
-            </td>
-            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
-              <a href="https://arxiv.org/pdf/2406.08920">
-                <span class="papertitle">
-                  AV-GS: Learning Material and Geometry Aware Priors for Novel View Acoustic Synthesis
-                </span>
-              </a>
-              <br>
-              <a href="https://swapb94.github.io/">Swapnil Bhosale</a>
-              <strong>Haosen Yang</strong>,
-              <a href="https://dipteshkanojia.github.io/">Diptesh Kanojia</a>,
-              <a href="https://jiankangdeng.github.io/">Jiankang Deng</a>,
-              <a href="https://x-up-lab.github.io/">Xiatian Zhu</a>
-              <br>
-              <em>NIPS</em>, 2024
-              <br>
-              <a href="https://happy-hsy.github.io/">project page</a> /
-              <a href="https://arxiv.org/pdf/2406.08920">arXiv</a> /
-              <a href="https://github.com/Surrey-UP-Lab/AV-GS/">code</a>
-              <p></p>
-            </td>
-          </tr>
+        <article class="publication selected">
+          <div class="pub-image depth"><img src="images/stump.png" alt="Gaussian splatting rendering"><img class="hover" src="images/stump_depth.png" alt="Depth map"><span>CVPR</span></div>
+          <div class="pub-copy">
+            <h4><a href="https://arxiv.org/abs/2406.04251" target="_blank" rel="noreferrer">Improving Gaussian Splatting with Localized Points Management</a></h4>
+            <p class="authors"><strong>Haosen Yang*</strong>; Chenhao Zhang*; Wenqing Wang*; Marco Volino; Adrian Hilton; Li Zhang; Xiatian Zhu.</p>
+            <p><em><strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</strong></em> 2025 <mark>Highlight</mark></p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2406.04251" target="_blank" rel="noreferrer">[Arxiv]</a> <a href="projects/LPM/">[Project]</a> <a href="https://github.com/Surrey-UP-Lab/GS-LPM" target="_blank" rel="noreferrer">[Code]</a></p>
+          </div>
+        </article>
 
-          <tr>
-            <td class="pub-image-cell">
-              <div class="image-box">
-                <img src="images/regionspot.png" alt="Snow Cat">
-              </div>
-            </td>
-            <td class="pub-text-cell" style="padding: 8px; vertical-align: middle;">
-              <a href="https://arxiv.org/pdf/2311.01373">
-                <span class="papertitle">
-                  Recognize Any Regions
-                </span>
-              </a>
-              <br>
-              <strong>Haosen Yang</strong>,
-              <a href="https://machuofan.github.io/">Chuofan Ma</a>,
-              <a href="https://scholar.google.com/citations?hl=zh-CN&user=Hmgqwf4AAAAJ&view_op=list_works&sortby=pubdate">Bin Wen</a>,
-              <a href="https://enjoyyi.github.io/">Yi Jiang</a>,
-              <a href="https://shallowyuan.github.io/">Zehuan Yuan</a>,
-              <a href="https://x-up-lab.github.io/">Xiatian Zhu</a>
-              <br>
-              <em>NIPS</em>, 2024
-              <br>
-              <a href="https://happy-hsy.github.io/">project page</a> /
-              <a href="https://arxiv.org/pdf/2311.01373">arXiv</a> /
-              <a href="https://github.com/Surrey-UP-Lab/RegionSpot/">code</a>
-              <p></p>
-            </td>
-          </tr>
+        <article class="publication">
+          <div class="pub-image"><img src="images/avgs.jpg" alt="AV-GS overview"><span>NeurIPS</span></div>
+          <div class="pub-copy">
+            <h4><a href="https://arxiv.org/abs/2406.08920" target="_blank" rel="noreferrer">AV-GS: Learning Material and Geometry Aware Priors for Novel View Acoustic Synthesis</a></h4>
+            <p class="authors">Swapnil Bhosale; <strong>Haosen Yang</strong>; Diptesh Kanojia; Jiankang Deng; Xiatian Zhu.</p>
+            <p><em><strong>Advances in Neural Information Processing Systems (NeurIPS)</strong></em> 2024</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2406.08920" target="_blank" rel="noreferrer">[Arxiv]</a> <a href="https://github.com/Surrey-UP-Lab/AV-GS/" target="_blank" rel="noreferrer">[Code]</a></p>
+          </div>
+        </article>
 
+        <article class="publication last">
+          <div class="pub-image"><img src="images/regionspot.png" alt="Recognize Any Regions overview"><span>NeurIPS</span></div>
+          <div class="pub-copy">
+            <h4><a href="https://arxiv.org/abs/2311.01373" target="_blank" rel="noreferrer">Recognize Any Regions</a></h4>
+            <p class="authors"><strong>Haosen Yang</strong>; Chuofan Ma; Bin Wen; Yi Jiang; Zehuan Yuan; Xiatian Zhu.</p>
+            <p><em><strong>Advances in Neural Information Processing Systems (NeurIPS)</strong></em> 2024</p>
+            <p class="pub-links"><a href="https://arxiv.org/abs/2311.01373" target="_blank" rel="noreferrer">[Arxiv]</a> <a href="https://github.com/Surrey-UP-Lab/RegionSpot/" target="_blank" rel="noreferrer">[Code]</a></p>
+          </div>
+        </article>
+        <div class="all-publications"><a href="https://scholar.google.com/citations?user=H8uoAdMAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">all publications →</a></div>
+      </section>
+    </div>
+  </main>
 
-         
+  <footer><div>Last updated: Aug 2026</div><div>Based on <a href="https://github.com/luost26/academic-homepage" target="_blank" rel="noreferrer">academic-homepage</a>, inspired by <a href="https://onethousandwu.com/" target="_blank" rel="noreferrer">Yiqian Wu</a>.</div></footer>
+  <script>
+    const button = document.querySelector('.menu-button');
+    const links = document.querySelector('.nav-links');
+    button.addEventListener('click', () => { const open = links.classList.toggle('open'); button.setAttribute('aria-expanded', open); });
 
-        </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    const terminal = document.querySelector('#mini-terminal');
+    const terminalInput = document.querySelector('#terminal-input');
+    const terminalOutput = document.querySelector('#terminal-output');
+    const terminalPrompt = document.querySelector('.terminal-prompt');
+    const terminalCommands = {
+      help: '<strong>available commands</strong><br>about · research · papers · news · contact · whoami · <strong>climb</strong> · <strong>world</strong> · clear',
+      about: 'Ph.D. student exploring intelligence hidden in video.',
+      research: 'video MLLMs · generation · WAMs · VLAs',
+      whoami: 'visitor, collaborator, or future co-author? 👀',
+      contact: 'Opening email…'
+    };
+    let gameTimer;
+    const showTerminalOutput = (html) => {
+      terminalOutput.innerHTML = html;
+      terminalOutput.classList.add('show');
+    };
+    const recordSummit = async (hint) => {
+      const storageKey = 'haosen-climbing-summit-rank';
+      try {
+        const savedRank = window.localStorage.getItem(storageKey);
+        if (savedRank) {
+          hint.innerHTML = `Summit reached — you are climber <strong>#${savedRank}</strong>! 🏔️`;
+          return;
+        }
+        hint.textContent = 'Summit reached — registering your ascent…';
+        const response = await fetch('https://counterapi.com/api/happy-hsy.github.io/climbingSummit/homepage?unique=true');
+        if (!response.ok) throw new Error('counter unavailable');
+        const result = await response.json();
+        const rank = Number(result.value);
+        if (!Number.isFinite(rank)) throw new Error('invalid counter');
+        window.localStorage.setItem(storageKey, String(rank));
+        hint.innerHTML = `Summit reached — you are climber <strong>#${rank}</strong>! 🏔️`;
+      } catch (error) {
+        hint.innerHTML = 'Summit reached! You made it to the top. 🏔️';
+      }
+    };
+    const startClimbingGame = () => {
+      window.clearInterval(gameTimer);
+      showTerminalOutput('<div class="game-head"><strong>summit.exe · skill</strong><span><b id="game-height">0</b>m · <b id="game-time">45</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game" title="Enlarge game">⛶</button></div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas" width="310" height="220" tabindex="0" aria-label="Climbing game"></canvas><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="jump">JUMP</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: ← → / A D · Jump: Space</div>');
+      const canvas = terminalOutput.querySelector('.climb-canvas');
+      const context = canvas.getContext('2d');
+      const heightNode = terminalOutput.querySelector('#game-height');
+      const healthFill = terminalOutput.querySelector('#health-fill');
+      const healthValue = terminalOutput.querySelector('#health-value');
+      const timeNode = terminalOutput.querySelector('#game-time');
+      const hint = terminalOutput.querySelector('.game-hint');
+      const controls = { left: false, right: false };
+      const player = { x: 145, y: 185, previousY: 185, vx: 0, vy: 0, width: 14, height: 20, grounded: true };
+      const platforms = [{ x: 108, y: 205, width: 92, kind: 'safe', broken: false }];
+      let previousX = 126;
+      for (let i = 1; i < 12; i += 1) {
+        previousX = Math.max(14, Math.min(248, previousX + (Math.random() * 150 - 75)));
+        platforms.push({ x: previousX, y: 205 - i * 46, width: i === 11 ? 54 : 36 + Math.random() * 13, kind: i % 3 === 0 ? 'fragile' : i % 2 === 0 ? 'moving' : 'safe', broken: false, phase: Math.random() * 6 });
+      }
+      const lasers = [{ y: platforms[4].y - 23, phase: .2 }, { y: platforms[9].y - 22, phase: 2.7 }];
+      let cameraY = 0;
+      let health = 100;
+      let highest = 0;
+      let checkpoint = platforms[0];
+      let currentPlatform = platforms[0];
+      let ended = false;
+      let invincibleUntil = 0;
+      const startTime = performance.now();
+      const platformX = (platform, now) => platform.x + (platform.kind === 'moving' ? Math.sin(now / 390 + platform.phase) * 31 : 0);
+      const laserState = (laser, now) => ({ y: laser.y, gapX: 28 + (Math.sin(now / 720 + laser.phase) + 1) * 95, gapWidth: 76, active: Math.sin(now / 560 + laser.phase) > .38 });
+      const finish = (won) => {
+        if (ended) return;
+        ended = true;
+        window.clearInterval(gameTimer);
+        controls.left = false;
+        controls.right = false;
+        if (won) recordSummit(hint);
+        else hint.innerHTML = `Out of grip! Reached ${highest * 5}m. Type <strong>play</strong> to retry.`;
+      };
+      const jump = () => { if (player.grounded && !ended) { player.grounded = false; player.vy = -6.65; hint.textContent = 'Commit to the move!'; } };
+      const setMove = (direction, active) => { if (direction === 'jump') { if (active) jump(); } else controls[direction] = active; canvas.focus({ preventScroll: true }); };
+      const takeDamage = (damage, message, now) => {
+        if (now < invincibleUntil || ended) return;
+        health = Math.max(0, health - damage);
+        healthFill.style.width = `${health}%`;
+        healthFill.classList.toggle('danger', health <= 35);
+        healthValue.textContent = health;
+        if (health <= 0) { finish(false); return; }
+        invincibleUntil = now + 1450;
+        player.x = platformX(checkpoint, now) + checkpoint.width / 2 - 7;
+        player.y = checkpoint.y - player.height; player.vx = 0; player.vy = 0; player.grounded = true; currentPlatform = checkpoint;
+        hint.textContent = `${message} −${damage} HP`;
+      };
+      const keyMove = (event, active) => {
+        if (!terminalOutput.classList.contains('show') || ended) return;
+        if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') { event.preventDefault(); setMove('left', active); }
+        if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') { event.preventDefault(); setMove('right', active); }
+        if ((event.code === 'Space' || event.key === 'ArrowUp' || event.key.toLowerCase() === 'w') && active && !event.repeat) { event.preventDefault(); jump(); }
+      };
+      canvas.addEventListener('keydown', (event) => keyMove(event, true));
+      canvas.addEventListener('keyup', (event) => keyMove(event, false));
+      terminalOutput.querySelectorAll('[data-move]').forEach((control) => {
+        const direction = control.dataset.move;
+        control.addEventListener('pointerdown', (event) => { event.preventDefault(); setMove(direction, true); });
+        ['pointerup', 'pointercancel', 'pointerleave'].forEach((name) => control.addEventListener(name, () => setMove(direction, false)));
+      });
+      terminalOutput.querySelector('.game-expand').addEventListener('click', (event) => {
+        event.stopPropagation();
+        const expanded = terminalOutput.classList.toggle('game-expanded');
+        event.currentTarget.textContent = expanded ? '✕' : '⛶';
+        event.currentTarget.setAttribute('aria-label', expanded ? 'Restore game size' : 'Enlarge game');
+        canvas.focus({ preventScroll: true });
+      });
+      canvas.focus({ preventScroll: true });
+      const draw = (now) => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        const sky = context.createLinearGradient(0, 0, 0, canvas.height);
+        sky.addColorStop(0, '#081944'); sky.addColorStop(1, '#173577');
+        context.fillStyle = sky; context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = 'rgba(191,219,254,.12)';
+        for (let i = 0; i < 22; i += 1) context.fillRect((i * 67) % 310, ((i * 41) - cameraY * .25) % 220, 2, 2);
+        if (highest >= 4) {
+          const windDirection = Math.sin(now / 780);
+          context.strokeStyle = 'rgba(191,219,254,.42)'; context.lineWidth = 1.5;
+          for (let i = 0; i < 5; i += 1) {
+            const windX = ((now * (windDirection >= 0 ? .09 : -.09) + i * 79) % 390 + 390) % 390 - 40;
+            const windY = 32 + i * 37;
+            context.beginPath(); context.moveTo(windX, windY); context.lineTo(windX + (windDirection >= 0 ? 28 : -28), windY); context.stroke();
+          }
+          context.fillStyle = 'rgba(191,219,254,.75)'; context.font = '11px monospace'; context.fillText(windDirection >= 0 ? 'wind →' : '← wind', windDirection >= 0 ? 251 : 8, 16);
+        }
+        platforms.forEach((platform, index) => {
+          if (platform.broken) return;
+          const x = platformX(platform, now);
+          const y = platform.y - cameraY;
+          if (y < -15 || y > 235) return;
+          context.fillStyle = platform.kind === 'fragile' ? '#f472b6' : platform.kind === 'moving' ? '#fbbf24' : '#60a5fa';
+          context.beginPath(); context.roundRect(x, y, platform.width, 9, 4); context.fill();
+          context.fillStyle = 'rgba(255,255,255,.55)'; context.fillRect(x + 5, y + 2, platform.width - 10, 2);
+          if (index === 11) { context.fillStyle = '#fde68a'; context.font = '18px sans-serif'; context.fillText('⚑', x + platform.width / 2 - 7, y - 7); }
+        });
+        lasers.forEach((laser) => {
+          const state = laserState(laser, now);
+          if (!state.active) return;
+          const y = state.y - cameraY;
+          if (y < -12 || y > 232) return;
+          context.fillStyle = 'rgba(251,113,133,.16)'; context.fillRect(0, y - 3, state.gapX, 10); context.fillRect(state.gapX + state.gapWidth, y - 3, canvas.width, 10);
+          context.fillStyle = '#fb7185'; context.fillRect(0, y, state.gapX, 3); context.fillRect(state.gapX + state.gapWidth, y, canvas.width, 3);
+          context.fillStyle = '#86efac'; context.fillRect(state.gapX, y + 1, state.gapWidth, 1);
+        });
+        const screenY = player.y - cameraY;
+        context.globalAlpha = now < invincibleUntil && Math.floor(now / 90) % 2 ? .25 : 1;
+        context.fillStyle = '#eaf2ff'; context.beginPath(); context.arc(player.x + 7, screenY + 5, 5, 0, Math.PI * 2); context.fill();
+        context.strokeStyle = '#bfdbfe'; context.lineWidth = 3; context.beginPath(); context.moveTo(player.x + 7, screenY + 10); context.lineTo(player.x + 7, screenY + 18); context.moveTo(player.x + 7, screenY + 12); context.lineTo(player.x + 1, screenY + 16); context.moveTo(player.x + 7, screenY + 12); context.lineTo(player.x + 13, screenY + 16); context.stroke();
+        context.globalAlpha = 1;
+      };
+      gameTimer = window.setInterval(() => {
+        if (ended) return;
+        const now = performance.now();
+        const remaining = Math.max(0, 45 - Math.floor((now - startTime) / 1000));
+        timeNode.textContent = remaining;
+        if (remaining <= 0) { finish(false); return; }
+        player.previousY = player.y;
+        if (controls.left) player.vx -= .2;
+        if (controls.right) player.vx += .2;
+        const wind = highest >= 4 ? Math.sin(now / 780) * (.035 + highest * .006) : 0;
+        player.vx += wind;
+        player.vx *= .88; player.vx = Math.max(-2.3, Math.min(2.3, player.vx));
+        if (player.grounded && currentPlatform) {
+          const supportX = platformX(currentPlatform, now);
+          player.y = currentPlatform.y - player.height;
+          if (player.x + player.width < supportX || player.x > supportX + currentPlatform.width) { player.grounded = false; player.vy = .4; }
+        }
+        if (!player.grounded) player.vy += .24;
+        player.x += player.vx; player.y += player.vy;
+        player.x = Math.max(0, Math.min(canvas.width - player.width, player.x));
+        if (now >= invincibleUntil) lasers.forEach((laser) => {
+          const state = laserState(laser, now);
+          if (!state.active) return;
+          const padding = 3;
+          const insideGap = player.x + padding >= state.gapX && player.x + player.width - padding <= state.gapX + state.gapWidth;
+          const crossesBeam = player.y + player.height - padding > state.y && player.y + padding < state.y + 4;
+          if (!insideGap && crossesBeam) takeDamage(25, 'Zapped! Wait or aim for the green gap.', now);
+        });
+        if (!player.grounded && player.vy > 0) {
+          platforms.forEach((platform, index) => {
+            if (platform.broken) return;
+            const x = platformX(platform, now);
+            const previousBottom = player.previousY + player.height;
+            const bottom = player.y + player.height;
+            if (previousBottom <= platform.y && bottom >= platform.y && player.x + player.width > x && player.x < x + platform.width) {
+              player.y = platform.y - player.height; player.vy = 0; player.grounded = true; currentPlatform = platform;
+              if (platform.kind !== 'fragile') checkpoint = platform;
+              if (index > highest) { highest = index; heightNode.textContent = index * 5; }
+              if (platform.kind === 'fragile') window.setTimeout(() => { platform.broken = true; if (currentPlatform === platform) { player.grounded = false; player.vy = .6; } }, 320);
+              if (index === 11) finish(true);
+            }
+          });
+        }
+        if (player.y - cameraY < 82) cameraY = player.y - 82;
+        if (player.y > cameraY + canvas.height + 35) {
+          takeDamage(18, 'Saved by the rope — two hands on!', now);
+        }
+        draw(now);
+      }, 1000 / 60);
+    };
+    const startWorldGame = () => {
+      window.clearInterval(gameTimer);
+      showTerminalOutput('<div class="game-head"><strong>world_model.exe</strong><span><b id="world-score">0</b> pts · <b id="world-combo">x1</b> · <b id="world-time">30</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game">⛶</button></div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas world-canvas" width="310" height="220" tabindex="0" aria-label="World model shooting game"></canvas><div class="conference-stats"><span>CVPR <b data-conf="CVPR">0</b></span><span>ICCV <b data-conf="ICCV">0</b></span><span>ECCV <b data-conf="ECCV">0</b></span><span>NeurIPS <b data-conf="NeurIPS">0</b></span><span>ICLR <b data-conf="ICLR">0</b></span></div><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="fire">FIRE</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: A D / ← → · Fire: Space</div>');
+      const canvas = terminalOutput.querySelector('.world-canvas');
+      const context = canvas.getContext('2d');
+      const scoreNode = terminalOutput.querySelector('#world-score');
+      const comboNode = terminalOutput.querySelector('#world-combo');
+      const timeNode = terminalOutput.querySelector('#world-time');
+      const healthFill = terminalOutput.querySelector('#health-fill');
+      const healthValue = terminalOutput.querySelector('#health-value');
+      const hint = terminalOutput.querySelector('.game-hint');
+      const player = { x: 138, y: 194, width: 34, height: 13, vx: 0 };
+      const controls = { left: false, right: false };
+      const bullets = [];
+      const targets = [];
+      const labels = ['CVPR', 'ICCV', 'ECCV', 'NeurIPS', 'ICLR'];
+      const conferenceHits = Object.fromEntries(labels.map((label) => [label, 0]));
+      let score = 0, combo = 1, health = 100, lastSpawn = 0, lastShot = 0, ended = false;
+      const startTime = performance.now();
+      const fire = () => {
+        const now = performance.now();
+        if (ended || now - lastShot < 190) return;
+        lastShot = now;
+        bullets.push({ x: player.x + player.width / 2 - 2, y: player.y - 7, width: 4, height: 10 });
+      };
+      const setControl = (direction, active) => { if (direction === 'fire') { if (active) fire(); } else controls[direction] = active; canvas.focus({ preventScroll: true }); };
+      canvas.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') { event.preventDefault(); controls.left = true; }
+        if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') { event.preventDefault(); controls.right = true; }
+        if (event.code === 'Space' && !event.repeat) { event.preventDefault(); fire(); }
+      });
+      canvas.addEventListener('keyup', (event) => {
+        if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') controls.left = false;
+        if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') controls.right = false;
+      });
+      terminalOutput.querySelectorAll('[data-move]').forEach((control) => {
+        const direction = control.dataset.move;
+        control.addEventListener('pointerdown', (event) => { event.preventDefault(); setControl(direction, true); });
+        ['pointerup', 'pointercancel', 'pointerleave'].forEach((name) => control.addEventListener(name, () => setControl(direction, false)));
+      });
+      terminalOutput.querySelector('.game-expand').addEventListener('click', (event) => {
+        event.stopPropagation(); const expanded = terminalOutput.classList.toggle('game-expanded'); event.currentTarget.textContent = expanded ? '✕' : '⛶'; canvas.focus({ preventScroll: true });
+      });
+      canvas.focus({ preventScroll: true });
+      gameTimer = window.setInterval(() => {
+        if (ended) return;
+        const now = performance.now();
+        const remaining = Math.max(0, 30 - Math.floor((now - startTime) / 1000));
+        timeNode.textContent = remaining;
+        if (remaining <= 0 || health <= 0) { ended = true; window.clearInterval(gameTimer); hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR}`; return; }
+        if (now - lastSpawn > Math.max(390, 820 - score * 2)) {
+          lastSpawn = now;
+          targets.push({ x: 12 + Math.random() * 246, y: -18, width: 46, height: 18, speed: 1 + Math.random() * .75, label: labels[Math.floor(Math.random() * labels.length)], phase: Math.random() * 6 });
+        }
+        if (controls.left) player.vx -= .3; if (controls.right) player.vx += .3;
+        player.vx *= .86; player.vx = Math.max(-3.1, Math.min(3.1, player.vx)); player.x = Math.max(0, Math.min(310 - player.width, player.x + player.vx));
+        bullets.forEach((bullet) => { bullet.y -= 5.4; });
+        targets.forEach((target) => { target.y += target.speed; target.x += Math.sin(now / 420 + target.phase) * .35; });
+        for (let i = targets.length - 1; i >= 0; i -= 1) {
+          const target = targets[i];
+          let hit = false;
+          for (let j = bullets.length - 1; j >= 0; j -= 1) {
+            const bullet = bullets[j];
+            if (bullet.x < target.x + target.width && bullet.x + bullet.width > target.x && bullet.y < target.y + target.height && bullet.y + bullet.height > target.y) {
+              bullets.splice(j, 1); targets.splice(i, 1); score += 10 * combo; combo = Math.min(5, combo + 1); conferenceHits[target.label] += 1; terminalOutput.querySelector(`[data-conf="${target.label}"]`).textContent = conferenceHits[target.label]; hit = true; break;
+            }
+          }
+          if (!hit && target.y > 220) { targets.splice(i, 1); health = Math.max(0, health - 15); combo = 1; }
+        }
+        for (let i = bullets.length - 1; i >= 0; i -= 1) if (bullets[i].y < -12) bullets.splice(i, 1);
+        scoreNode.textContent = score; comboNode.textContent = `x${combo}`; healthValue.textContent = health; healthFill.style.width = `${health}%`; healthFill.classList.toggle('danger', health <= 35);
+        context.fillStyle = '#071638'; context.fillRect(0, 0, 310, 220);
+        context.strokeStyle = 'rgba(96,165,250,.1)'; context.lineWidth = 1;
+        for (let x = 0; x < 310; x += 20) { context.beginPath(); context.moveTo(x, 0); context.lineTo(x, 220); context.stroke(); }
+        for (let y = 0; y < 220; y += 20) { context.beginPath(); context.moveTo(0, y); context.lineTo(310, y); context.stroke(); }
+        targets.forEach((target) => { context.fillStyle = '#1d4ed8'; context.fillRect(target.x, target.y, target.width, target.height); context.strokeStyle = '#93c5fd'; context.strokeRect(target.x, target.y, target.width, target.height); context.fillStyle = '#fff'; context.font = '8px monospace'; context.textAlign = 'center'; context.fillText(target.label, target.x + target.width / 2, target.y + 12); });
+        context.fillStyle = '#fbbf24'; bullets.forEach((bullet) => context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height));
+        context.fillStyle = '#60a5fa'; context.beginPath(); context.moveTo(player.x, player.y + player.height); context.lineTo(player.x + player.width / 2, player.y); context.lineTo(player.x + player.width, player.y + player.height); context.closePath(); context.fill();
+        context.fillStyle = '#bfdbfe'; context.fillRect(player.x + player.width / 2 - 2, player.y - 4, 4, 8);
+      }, 1000 / 60);
+    };
+    terminalPrompt.addEventListener('click', () => terminalInput.focus());
+    terminal.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const command = terminalInput.value.trim().toLowerCase();
+      terminalInput.value = '';
+      if (!command) return;
+      window.clearInterval(gameTimer);
+      if (command === 'clear') { window.clearInterval(gameTimer); terminalOutput.classList.remove('show'); return; }
+      if (command === 'play' || command === 'game' || command === 'climb') {
+        startClimbingGame();
+      } else if (command === 'world' || command === 'shoot') {
+        startWorldGame();
+      } else if (command === 'coffee') {
+        showTerminalOutput('☕ compiling ideas…<br><span class="terminal-secret">done: one paper idea generated.</span>');
+      } else if (command === 'sudo hire haosen' || command === 'sudo hire me') {
+        showTerminalOutput('permission granted ✓<br><a class="terminal-email-link" href="mailto:haosen.yang.6@gmail.com">send collaboration request →</a>');
+      } else if (command === 'papers' || command === 'publications') {
+        showTerminalOutput('✓ jumping to selected publications');
+        document.querySelector('#publications').scrollIntoView({ behavior: 'smooth' });
+      } else if (command === 'news') {
+        showTerminalOutput('✓ loading latest updates');
+        document.querySelector('.news-card').scrollIntoView({ behavior: 'smooth' });
+      } else if (command === 'contact' || command === 'email') {
+        showTerminalOutput(terminalCommands.contact);
+        window.setTimeout(() => { window.location.href = 'mailto:haosen.yang.6@gmail.com'; }, 350);
+      } else if (terminalCommands[command]) {
+        showTerminalOutput(terminalCommands[command]);
+      } else {
+        showTerminalOutput(`command not found: <strong>${command.replace(/[<>&"']/g, '')}</strong><br>type <strong>help</strong> to explore`);
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (!terminal.contains(event.target)) terminalOutput.classList.remove('show');
+    });
 
+    const carousel = document.querySelector('.logo-strip');
+    const scrollCarousel = (direction) => {
+      const item = carousel.querySelector('figure');
+      carousel.scrollBy({ left: direction * (item.offsetWidth + 36), behavior: 'smooth' });
+    };
+    document.querySelector('.carousel-prev').addEventListener('click', () => scrollCarousel(-1));
+    document.querySelector('.carousel-next').addEventListener('click', () => scrollCarousel(1));
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); scrollCarousel(-1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); scrollCarousel(1); }
+    });
+    carousel.addEventListener('wheel', (event) => {
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        carousel.scrollLeft += event.deltaY;
+      }
+    }, { passive: false });
 
-  
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Website template from  <a href="https://jonbarron.info/">Jon Barron</a>. 
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-  </body>
+    let dragging = false;
+    let dragStart = 0;
+    let scrollStart = 0;
+    carousel.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      dragStart = event.clientX;
+      scrollStart = carousel.scrollLeft;
+      carousel.classList.add('is-dragging');
+      carousel.setPointerCapture(event.pointerId);
+    });
+    carousel.addEventListener('pointermove', (event) => {
+      if (dragging) carousel.scrollLeft = scrollStart - (event.clientX - dragStart);
+    });
+    const stopDragging = () => { dragging = false; carousel.classList.remove('is-dragging'); };
+    carousel.addEventListener('pointerup', stopDragging);
+    carousel.addEventListener('pointercancel', stopDragging);
+
+    const comparison = document.querySelector('.geonext-compare');
+    comparison.addEventListener('pointermove', (event) => {
+      const bounds = comparison.getBoundingClientRect();
+      const percentage = Math.min(92, Math.max(8, ((event.clientX - bounds.left) / bounds.width) * 100));
+      comparison.style.setProperty('--split', percentage + '%');
+    });
+    comparison.addEventListener('pointerleave', () => comparison.style.setProperty('--split', '50%'));
+  </script>
+</body>
 </html>
