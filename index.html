@@ -182,6 +182,23 @@
       terminalOutput.innerHTML = html;
       terminalOutput.classList.add('show');
     };
+    const GAME_API_URL = 'https://aqclijdevqjmkiznmbcs.supabase.co/functions/v1/game-leaderboard';
+    const GAME_API_KEY = 'sb_publishable_rg37eqtdZ8HoRsp-7Ip4cA_vtwt-dIe';
+    const getGamePlayerToken = () => {
+      const storageKey = 'haosen-game-player-token';
+      let token = window.localStorage.getItem(storageKey);
+      if (!token) { token = crypto.randomUUID(); window.localStorage.setItem(storageKey, token); }
+      return token;
+    };
+    const gameApiRequest = async (payload) => {
+      const response = await fetch(GAME_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: GAME_API_KEY },
+        body: JSON.stringify({ ...payload, player_token: getGamePlayerToken() })
+      });
+      if (!response.ok) throw new Error('leaderboard unavailable');
+      return response.json();
+    };
     const recordSummit = async (hint) => {
       const storageKey = 'haosen-climbing-summit-rank';
       try {
@@ -203,22 +220,17 @@
       }
     };
     const registerGamePlayer = async (game, node) => {
-      const storageKey = `haosen-${game}-player-rank`;
       const noun = game === 'climb' ? 'climber' : 'agent';
       try {
-        const savedRank = window.localStorage.getItem(storageKey);
-        if (savedRank && Number(savedRank) > 0) { node.innerHTML = `You are ${noun} <strong>#${savedRank}</strong> to play`; return; }
-        if (savedRank) window.localStorage.removeItem(storageKey);
         node.textContent = 'registering player…';
-        const response = await fetch(`https://counterapi.com/api/happy-hsy.github.io/gameStarted/${game}`);
-        if (!response.ok) throw new Error('counter unavailable');
-        const result = await response.json();
-        const rank = Math.max(1, Number(result.value));
+        const result = await gameApiRequest({ action: 'register', game });
+        const rank = Number(result.player_number);
         if (!Number.isFinite(rank)) throw new Error('invalid counter');
-        window.localStorage.setItem(storageKey, String(rank));
         node.innerHTML = `You are ${noun} <strong>#${rank}</strong> to play`;
+        return rank;
       } catch (error) {
         node.textContent = game === 'climb' ? 'climbing session' : 'world-model session';
+        return null;
       }
     };
     const startClimbingGame = () => {
@@ -390,7 +402,7 @@
     const startWorldGame = () => {
       window.clearInterval(gameTimer);
       showTerminalOutput('<div class="game-head"><strong>world_model.exe</strong><span><b id="world-score">0</b> pts · <b id="world-combo">x1</b> · <b id="world-time">30</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game">⛶</button></div><div class="game-player-rank">registering player…</div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas world-canvas" width="310" height="220" tabindex="0" aria-label="World model shooting game"></canvas><div class="conference-stats"><span>CVPR <b data-conf="CVPR">0</b></span><span>ICCV <b data-conf="ICCV">0</b></span><span>ECCV <b data-conf="ECCV">0</b></span><span>NeurIPS <b data-conf="NeurIPS">0</b></span><span>ICLR <b data-conf="ICLR">0</b></span><span>ICML <b data-conf="ICML">0</b></span></div><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="fire">FIRE</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: A D / ← → · Fire: Space</div>');
-      registerGamePlayer('world', terminalOutput.querySelector('.game-player-rank'));
+      const playerRegistration = registerGamePlayer('world', terminalOutput.querySelector('.game-player-rank'));
       const canvas = terminalOutput.querySelector('.world-canvas');
       const context = canvas.getContext('2d');
       const scoreNode = terminalOutput.querySelector('#world-score');
@@ -407,6 +419,23 @@
       const conferenceHits = Object.fromEntries(labels.map((label) => [label, 0]));
       let score = 0, combo = 1, health = 100, lastSpawn = 0, lastShot = 0, ended = false;
       const startTime = performance.now();
+      const finishWorldGame = async () => {
+        if (ended) return;
+        ended = true;
+        window.clearInterval(gameTimer);
+        hint.textContent = 'Saving your papers and calculating global rank…';
+        try {
+          const playerNumber = await playerRegistration;
+          const result = await gameApiRequest({
+            action: 'submit_world_score', score,
+            cvpr: conferenceHits.CVPR, iccv: conferenceHits.ICCV, eccv: conferenceHits.ECCV,
+            neurips: conferenceHits.NeurIPS, iclr: conferenceHits.ICLR, icml: conferenceHits.ICML
+          });
+          hint.innerHTML = `Player <strong>#${playerNumber || '?'}</strong> · paper rank <strong>#${result.rank}</strong> of ${result.ranked_players} finishers · top <strong>${result.top_percent}%</strong> (${result.total_players} players)`;
+        } catch (error) {
+          hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR} · ICML ${conferenceHits.ICML}`;
+        }
+      };
       const fire = () => {
         const now = performance.now();
         if (ended || now - lastShot < 190) return;
@@ -437,7 +466,7 @@
         const now = performance.now();
         const remaining = Math.max(0, 30 - Math.floor((now - startTime) / 1000));
         timeNode.textContent = remaining;
-        if (remaining <= 0 || health <= 0) { ended = true; window.clearInterval(gameTimer); hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR} · ICML ${conferenceHits.ICML}`; return; }
+        if (remaining <= 0 || health <= 0) { finishWorldGame(); return; }
         if (now - lastSpawn > Math.max(390, 820 - score * 2)) {
           lastSpawn = now;
           targets.push({ x: 12 + Math.random() * 246, y: -18, width: 46, height: 18, speed: 1 + Math.random() * .75, label: labels[Math.floor(Math.random() * labels.length)], phase: Math.random() * 6 });
