@@ -171,7 +171,7 @@
     const terminalOutput = document.querySelector('#terminal-output');
     const terminalPrompt = document.querySelector('.terminal-prompt');
     const terminalCommands = {
-      help: '<strong>available commands</strong><br>about · research · papers · news · contact · whoami · <strong>climb</strong> · <strong>world</strong> · clear',
+      help: '<strong>available commands</strong><br>about · research · papers · news · contact · whoami · <strong>play</strong> · clear',
       about: 'Ph.D. student exploring intelligence hidden in video.',
       research: 'video MLLMs · generation · WAMs · VLAs',
       whoami: 'visitor, collaborator, or future co-author? 👀',
@@ -518,9 +518,7 @@
       if (!command) return;
       window.clearInterval(gameTimer);
       if (command === 'clear') { window.clearInterval(gameTimer); terminalOutput.classList.remove('show'); return; }
-      if (command === 'play' || command === 'game' || command === 'climb') {
-        startClimbingGame();
-      } else if (command === 'world' || command === 'shoot') {
+      if (command === 'play' || command === 'world' || command === 'shoot') {
         startWorldGame();
       } else if (command === 'coffee') {
         showTerminalOutput('☕ compiling ideas…<br><span class="terminal-secret">done: one paper idea generated.</span>');
