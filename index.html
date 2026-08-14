@@ -388,7 +388,7 @@
     };
     const startWorldGame = () => {
       window.clearInterval(gameTimer);
-      showTerminalOutput('<div class="game-head"><strong>world_model.exe</strong><span><b id="world-score">0</b> pts · <b id="world-combo">x1</b> · <b id="world-time">30</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game">⛶</button></div><div class="game-player-rank">registering player…</div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas world-canvas" width="310" height="220" tabindex="0" aria-label="World model shooting game"></canvas><div class="conference-stats"><span>CVPR <b data-conf="CVPR">0</b></span><span>ICCV <b data-conf="ICCV">0</b></span><span>ECCV <b data-conf="ECCV">0</b></span><span>NeurIPS <b data-conf="NeurIPS">0</b></span><span>ICLR <b data-conf="ICLR">0</b></span></div><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="fire">FIRE</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: A D / ← → · Fire: Space</div>');
+      showTerminalOutput('<div class="game-head"><strong>world_model.exe</strong><span><b id="world-score">0</b> pts · <b id="world-combo">x1</b> · <b id="world-time">30</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game">⛶</button></div><div class="game-player-rank">registering player…</div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas world-canvas" width="310" height="220" tabindex="0" aria-label="World model shooting game"></canvas><div class="conference-stats"><span>CVPR <b data-conf="CVPR">0</b></span><span>ICCV <b data-conf="ICCV">0</b></span><span>ECCV <b data-conf="ECCV">0</b></span><span>NeurIPS <b data-conf="NeurIPS">0</b></span><span>ICLR <b data-conf="ICLR">0</b></span><span>ICML <b data-conf="ICML">0</b></span></div><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="fire">FIRE</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: A D / ← → · Fire: Space</div>');
       registerGamePlayer('world', terminalOutput.querySelector('.game-player-rank'));
       const canvas = terminalOutput.querySelector('.world-canvas');
       const context = canvas.getContext('2d');
@@ -402,7 +402,7 @@
       const controls = { left: false, right: false };
       const bullets = [];
       const targets = [];
-      const labels = ['CVPR', 'ICCV', 'ECCV', 'NeurIPS', 'ICLR'];
+      const labels = ['CVPR', 'ICCV', 'ECCV', 'NeurIPS', 'ICLR', 'ICML'];
       const conferenceHits = Object.fromEntries(labels.map((label) => [label, 0]));
       let score = 0, combo = 1, health = 100, lastSpawn = 0, lastShot = 0, ended = false;
       const startTime = performance.now();
@@ -436,7 +436,7 @@
         const now = performance.now();
         const remaining = Math.max(0, 30 - Math.floor((now - startTime) / 1000));
         timeNode.textContent = remaining;
-        if (remaining <= 0 || health <= 0) { ended = true; window.clearInterval(gameTimer); hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR}`; return; }
+        if (remaining <= 0 || health <= 0) { ended = true; window.clearInterval(gameTimer); hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR} · ICML ${conferenceHits.ICML}`; return; }
         if (now - lastSpawn > Math.max(390, 820 - score * 2)) {
           lastSpawn = now;
           targets.push({ x: 12 + Math.random() * 246, y: -18, width: 46, height: 18, speed: 1 + Math.random() * .75, label: labels[Math.floor(Math.random() * labels.length)], phase: Math.random() * 6 });
