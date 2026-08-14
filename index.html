@@ -207,15 +207,16 @@
       const noun = game === 'climb' ? 'climber' : 'agent';
       try {
         const savedRank = window.localStorage.getItem(storageKey);
-        if (savedRank) { node.innerHTML = `You are ${noun} <strong>#${savedRank}</strong>`; return; }
+        if (savedRank && Number(savedRank) > 0) { node.innerHTML = `You are ${noun} <strong>#${savedRank}</strong> to play`; return; }
+        if (savedRank) window.localStorage.removeItem(storageKey);
         node.textContent = 'registering player…';
-        const response = await fetch(`https://counterapi.com/api/happy-hsy.github.io/gameStarted/${game}?unique=true`);
+        const response = await fetch(`https://counterapi.com/api/happy-hsy.github.io/gameStarted/${game}`);
         if (!response.ok) throw new Error('counter unavailable');
         const result = await response.json();
-        const rank = Number(result.value);
+        const rank = Math.max(1, Number(result.value));
         if (!Number.isFinite(rank)) throw new Error('invalid counter');
         window.localStorage.setItem(storageKey, String(rank));
-        node.innerHTML = `You are ${noun} <strong>#${rank}</strong>`;
+        node.innerHTML = `You are ${noun} <strong>#${rank}</strong> to play`;
       } catch (error) {
         node.textContent = game === 'climb' ? 'climbing session' : 'world-model session';
       }
