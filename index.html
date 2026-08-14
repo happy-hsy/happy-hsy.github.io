@@ -401,7 +401,7 @@
     };
     const startWorldGame = () => {
       window.clearInterval(gameTimer);
-      showTerminalOutput('<div class="game-head"><strong>world_model.exe</strong><span><b id="world-score">0</b> pts · <b id="world-combo">x1</b> · <b id="world-time">30</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game">⛶</button></div><div class="game-player-rank">registering player…</div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas world-canvas" width="310" height="220" tabindex="0" aria-label="World model shooting game"></canvas><div class="conference-stats"><span>CVPR <b data-conf="CVPR">0</b></span><span>ICCV <b data-conf="ICCV">0</b></span><span>ECCV <b data-conf="ECCV">0</b></span><span>NeurIPS <b data-conf="NeurIPS">0</b></span><span>ICLR <b data-conf="ICLR">0</b></span><span>ICML <b data-conf="ICML">0</b></span></div><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="fire">FIRE</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: A D / ← → · Fire: Space</div>');
+      showTerminalOutput('<div class="game-head"><strong>world_model.exe</strong><span><b id="world-score">0</b> pts · <b id="world-combo">x1</b> · <b id="world-time">30</b>s</span><button class="game-expand" type="button" aria-label="Enlarge game">⛶</button></div><div class="game-player-rank">registering player…</div><div class="health-row"><span>HP</span><div class="health-track"><i id="health-fill"></i></div><b id="health-value">100</b></div><canvas class="climb-canvas world-canvas" width="310" height="220" tabindex="0" aria-label="World model shooting game"></canvas><div class="conference-stats"><span>CVPR <b data-conf="CVPR">0</b></span><span>ICCV <b data-conf="ICCV">0</b></span><span>ECCV <b data-conf="ECCV">0</b></span><span>NeurIPS <b data-conf="NeurIPS">0</b></span><span>ICLR <b data-conf="ICLR">0</b></span><span>ICML <b data-conf="ICML">0</b></span><span class="rare">T-PAMI <b data-conf="T-PAMI">0</b></span><span class="nature">Nature <b data-conf="Nature">0</b></span></div><div class="climb-controls"><button type="button" data-move="left">←</button><button class="jump-button" type="button" data-move="fire">FIRE</button><button type="button" data-move="right">→</button></div><div class="game-hint">Move: A D / ← → · Fire: Space</div>');
       const playerRegistration = registerGamePlayer('world', terminalOutput.querySelector('.game-player-rank'));
       const canvas = terminalOutput.querySelector('.world-canvas');
       const context = canvas.getContext('2d');
@@ -415,10 +415,17 @@
       const controls = { left: false, right: false };
       const bullets = [];
       const targets = [];
-      const labels = ['CVPR', 'ICCV', 'ECCV', 'NeurIPS', 'ICLR', 'ICML'];
+      const labels = ['CVPR', 'ICCV', 'ECCV', 'NeurIPS', 'ICLR', 'ICML', 'T-PAMI', 'Nature'];
+      const targetPool = [...Array(10).fill('CVPR'), ...Array(10).fill('ICCV'), ...Array(10).fill('ECCV'), ...Array(10).fill('NeurIPS'), ...Array(10).fill('ICLR'), ...Array(10).fill('ICML'), ...Array(3).fill('T-PAMI'), 'Nature'];
       const conferenceHits = Object.fromEntries(labels.map((label) => [label, 0]));
       let score = 0, combo = 1, health = 100, lastSpawn = 0, lastShot = 0, ended = false;
       const startTime = performance.now();
+      const submitCurrentWorldScore = () => gameApiRequest({
+        action: 'submit_world_score', score,
+        cvpr: conferenceHits.CVPR, iccv: conferenceHits.ICCV, eccv: conferenceHits.ECCV,
+        neurips: conferenceHits.NeurIPS, iclr: conferenceHits.ICLR, icml: conferenceHits.ICML,
+        nature: conferenceHits.Nature, tpami: conferenceHits['T-PAMI']
+      });
       const finishWorldGame = async () => {
         if (ended) return;
         ended = true;
@@ -426,14 +433,10 @@
         hint.textContent = 'Saving your papers and calculating global rank…';
         try {
           const playerNumber = await playerRegistration;
-          const result = await gameApiRequest({
-            action: 'submit_world_score', score,
-            cvpr: conferenceHits.CVPR, iccv: conferenceHits.ICCV, eccv: conferenceHits.ECCV,
-            neurips: conferenceHits.NeurIPS, iclr: conferenceHits.ICLR, icml: conferenceHits.ICML
-          });
+          const result = await submitCurrentWorldScore();
           hint.innerHTML = `Player <strong>#${playerNumber || '?'}</strong> · paper rank <strong>#${result.rank}</strong> of ${result.ranked_players} finishers · top <strong>${result.top_percent}%</strong> (${result.total_players} players)`;
         } catch (error) {
-          hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR} · ICML ${conferenceHits.ICML}`;
+          hint.innerHTML = `Final: CVPR ${conferenceHits.CVPR} · ICCV ${conferenceHits.ICCV} · ECCV ${conferenceHits.ECCV} · NeurIPS ${conferenceHits.NeurIPS} · ICLR ${conferenceHits.ICLR} · ICML ${conferenceHits.ICML} · T-PAMI ${conferenceHits['T-PAMI']} · Nature ${conferenceHits.Nature}`;
         }
       };
       const fire = () => {
@@ -469,7 +472,7 @@
         if (remaining <= 0 || health <= 0) { finishWorldGame(); return; }
         if (now - lastSpawn > Math.max(390, 820 - score * 2)) {
           lastSpawn = now;
-          targets.push({ x: 12 + Math.random() * 246, y: -18, width: 46, height: 18, speed: 1 + Math.random() * .75, label: labels[Math.floor(Math.random() * labels.length)], phase: Math.random() * 6 });
+          targets.push({ x: 12 + Math.random() * 246, y: -18, width: 46, height: 18, speed: 1 + Math.random() * .75, label: targetPool[Math.floor(Math.random() * targetPool.length)], phase: Math.random() * 6 });
         }
         if (controls.left) player.vx -= .3; if (controls.right) player.vx += .3;
         player.vx *= .86; player.vx = Math.max(-3.1, Math.min(3.1, player.vx)); player.x = Math.max(0, Math.min(310 - player.width, player.x + player.vx));
@@ -481,7 +484,16 @@
           for (let j = bullets.length - 1; j >= 0; j -= 1) {
             const bullet = bullets[j];
             if (bullet.x < target.x + target.width && bullet.x + bullet.width > target.x && bullet.y < target.y + target.height && bullet.y + bullet.height > target.y) {
-              bullets.splice(j, 1); targets.splice(i, 1); score += 10 * combo; combo = Math.min(5, combo + 1); conferenceHits[target.label] += 1; terminalOutput.querySelector(`[data-conf="${target.label}"]`).textContent = conferenceHits[target.label]; hit = true; break;
+              bullets.splice(j, 1); targets.splice(i, 1); score += 10 * combo; combo = Math.min(5, combo + 1); conferenceHits[target.label] += 1; terminalOutput.querySelector(`[data-conf="${target.label}"]`).textContent = conferenceHits[target.label];
+              if (target.label === 'Nature') {
+                hint.textContent = 'Nature accepted — registering this rare achievement…';
+                terminalOutput.classList.add('nature-celebration');
+                playerRegistration.then(() => submitCurrentWorldScore()).then((result) => {
+                  hint.innerHTML = `🎉 Congratulations! You are the <strong>#${result.nature_winner_number}</strong> player to get Nature!`;
+                  window.setTimeout(() => terminalOutput.classList.remove('nature-celebration'), 2200);
+                }).catch(() => { hint.textContent = '🎉 Congratulations — Nature accepted!'; });
+              }
+              hit = true; break;
             }
           }
           if (!hit && target.y > 220) { targets.splice(i, 1); health = Math.max(0, health - 15); combo = 1; }
@@ -492,7 +504,7 @@
         context.strokeStyle = 'rgba(96,165,250,.1)'; context.lineWidth = 1;
         for (let x = 0; x < 310; x += 20) { context.beginPath(); context.moveTo(x, 0); context.lineTo(x, 220); context.stroke(); }
         for (let y = 0; y < 220; y += 20) { context.beginPath(); context.moveTo(0, y); context.lineTo(310, y); context.stroke(); }
-        targets.forEach((target) => { context.fillStyle = '#1d4ed8'; context.fillRect(target.x, target.y, target.width, target.height); context.strokeStyle = '#93c5fd'; context.strokeRect(target.x, target.y, target.width, target.height); context.fillStyle = '#fff'; context.font = '8px monospace'; context.textAlign = 'center'; context.fillText(target.label, target.x + target.width / 2, target.y + 12); });
+        targets.forEach((target) => { context.fillStyle = target.label === 'Nature' ? '#b7791f' : target.label === 'T-PAMI' ? '#7c3aed' : '#1d4ed8'; context.fillRect(target.x, target.y, target.width, target.height); context.strokeStyle = target.label === 'Nature' ? '#fde68a' : '#93c5fd'; context.strokeRect(target.x, target.y, target.width, target.height); context.fillStyle = '#fff'; context.font = '8px monospace'; context.textAlign = 'center'; context.fillText(target.label, target.x + target.width / 2, target.y + 12); });
         context.fillStyle = '#fbbf24'; bullets.forEach((bullet) => context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height));
         context.fillStyle = '#60a5fa'; context.beginPath(); context.moveTo(player.x, player.y + player.height); context.lineTo(player.x + player.width / 2, player.y); context.lineTo(player.x + player.width, player.y + player.height); context.closePath(); context.fill();
         context.fillStyle = '#bfdbfe'; context.fillRect(player.x + player.width / 2 - 2, player.y - 4, 4, 8);
