@@ -39,36 +39,6 @@
         <a class="button" href="https://huggingface.co/happy0612/GeoNeXt" target="_blank" rel="noopener noreferrer">Models</a>
       </div>
 
-      <div class="teaser-wrap reveal">
-        <div class="teaser-glow"></div>
-        <section class="mesh-showcase" aria-label="Interactive GeoNeXt mesh reconstruction">
-          <div class="mesh-mode-tabs" role="tablist" aria-label="Mesh appearance">
-            <button type="button" role="tab" aria-selected="false" data-mesh-mode="geometry"><span>⬡</span> Geometry</button>
-            <button class="active" type="button" role="tab" aria-selected="true" data-mesh-mode="color"><span>▧</span> RGB</button>
-          </div>
-          <div class="mesh-comparison-stage">
-            <article class="mesh-compare-panel">
-              <label for="mesh-method-left">Left method</label>
-              <select id="mesh-method-left" aria-label="Choose the method shown on the left"></select>
-              <div class="mesh-stage">
-                <canvas id="mesh-canvas-left" aria-label="Left interactive mesh. Drag to rotate and scroll to zoom."></canvas>
-                <div class="mesh-loading" id="mesh-loading-left">Building geometry…</div>
-              </div>
-            </article>
-            <article class="mesh-compare-panel">
-              <label for="mesh-method-right">Right method</label>
-              <select id="mesh-method-right" aria-label="Choose the method shown on the right"></select>
-              <div class="mesh-stage">
-                <canvas id="mesh-canvas-right" aria-label="Right interactive mesh. Drag to rotate and scroll to zoom."></canvas>
-                <div class="mesh-loading" id="mesh-loading-right">Building geometry…</div>
-              </div>
-            </article>
-            <div class="mesh-badge"><span>↻</span> Drag to rotate · Scroll to zoom</div>
-          </div>
-          <p class="mesh-note">Meshes are reconstructed directly from predicted depth and surface normals, then aligned to the MoGe-2 coordinate space for comparison.</p>
-          <div class="mesh-scenes" id="mesh-scenes" aria-label="Choose a scene"></div>
-        </section>
-      </div>
     </section>
 
     <section id="overview" class="tldr-section section-shell reveal">
@@ -116,6 +86,34 @@
       </div>
     </section>
 
+    <section class="mesh-results section-shell">
+      <div class="section-heading reveal"><p class="eyebrow">Interactive reconstruction</p><h2>Explore geometry in 3D.</h2><p>Compare reconstructed meshes across methods, rotate each scene, and switch between geometry and RGB appearance.</p></div>
+      <div class="teaser-wrap reveal">
+        <div class="teaser-glow"></div>
+        <div class="mesh-showcase" aria-label="Interactive GeoNeXt mesh reconstruction">
+          <div class="mesh-mode-tabs" role="tablist" aria-label="Mesh appearance">
+            <button type="button" role="tab" aria-selected="false" data-mesh-mode="geometry"><span>⬡</span> Geometry</button>
+            <button class="active" type="button" role="tab" aria-selected="true" data-mesh-mode="color"><span>▧</span> RGB</button>
+          </div>
+          <div class="mesh-comparison-stage">
+            <article class="mesh-compare-panel">
+              <label for="mesh-method-left">Left method</label>
+              <select id="mesh-method-left" aria-label="Choose the method shown on the left"></select>
+              <div class="mesh-stage"><canvas id="mesh-canvas-left" aria-label="Left interactive mesh. Drag to rotate and scroll to zoom."></canvas><div class="mesh-loading" id="mesh-loading-left">Building geometry…</div></div>
+            </article>
+            <article class="mesh-compare-panel">
+              <label for="mesh-method-right">Right method</label>
+              <select id="mesh-method-right" aria-label="Choose the method shown on the right"></select>
+              <div class="mesh-stage"><canvas id="mesh-canvas-right" aria-label="Right interactive mesh. Drag to rotate and scroll to zoom."></canvas><div class="mesh-loading" id="mesh-loading-right">Building geometry…</div></div>
+            </article>
+            <div class="mesh-badge"><span>↻</span> Drag to rotate · Scroll to zoom</div>
+          </div>
+          <p class="mesh-note">Meshes are reconstructed directly from predicted depth and surface normals, then aligned to the MoGe-2 coordinate space for comparison.</p>
+          <div class="mesh-scenes" id="mesh-scenes" aria-label="Choose a scene"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="citation-section section-shell reveal" id="citation">
       <div class="citation-heading">
         <div><p class="eyebrow">Citation</p><h2>BibTeX</h2></div>
@@ -132,6 +130,6 @@
   </main>
 
   <dialog class="image-lightbox" id="image-lightbox"><button type="button" aria-label="Close enlarged image">×</button><img alt="Enlarged comparison result"><p></p></dialog>
-  <script src="script.js?v=20260831-2"></script>
+  <script src="script.js?v=20260831-3"></script>
 </body>
 </html>

@@ -192,7 +192,15 @@ function initMeshShowcase(){
   Object.values(renderers).forEach(renderer=>{const canvas=renderer.canvas;let dragging=false,lastX=0,lastY=0;canvas.addEventListener('pointerdown',event=>{dragging=true;lastX=event.clientX;lastY=event.clientY;canvas.setPointerCapture(event.pointerId)});canvas.addEventListener('pointermove',event=>{if(!dragging)return;state.yaw+=(event.clientX-lastX)*.008;state.pitch=Math.max(-1.35,Math.min(1.35,state.pitch+(event.clientY-lastY)*.008));lastX=event.clientX;lastY=event.clientY;renderBoth()});canvas.addEventListener('pointerup',()=>dragging=false);canvas.addEventListener('pointercancel',()=>dragging=false);canvas.addEventListener('wheel',event=>{event.preventDefault();state.zoom=Math.max(1,Math.min(7,state.zoom+event.deltaY*.002));renderBoth()},{passive:false});canvas.addEventListener('dblclick',()=>{state.yaw=0;state.pitch=0;state.zoom=2.23;renderBoth()})});
   window.addEventListener('resize',renderBoth);loadBoth(false);
 }
-initMeshShowcase();
+const meshShowcase = document.querySelector('.mesh-showcase');
+if (meshShowcase) {
+  const meshObserver = new IntersectionObserver((entries, observer) => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    observer.disconnect();
+    initMeshShowcase();
+  }, { rootMargin: '500px 0px' });
+  meshObserver.observe(meshShowcase);
+}
 
 const copyBibtexButton=document.querySelector('#copy-bibtex');
 if(copyBibtexButton)copyBibtexButton.addEventListener('click',async()=>{const entry=document.querySelector('#bibtex-entry').textContent;try{await navigator.clipboard.writeText(entry);copyBibtexButton.textContent='Copied';setTimeout(()=>copyBibtexButton.textContent='Copy BibTeX',1600)}catch{copyBibtexButton.textContent='Select and copy';setTimeout(()=>copyBibtexButton.textContent='Copy BibTeX',1600)}});
