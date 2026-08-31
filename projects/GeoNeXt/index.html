@@ -1,34 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GeoNeXt: Video Generative Models as Geometry Learner — project page coming soon.">
-  <title>GeoNeXt</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap">
-  <style>
-    :root{color-scheme:light;--ink:#172033;--muted:#667085;--blue:#1e3a8a;--line:#dce4f1;--paper:#fff;--wash:#f4f7fc}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--wash);font-family:"IBM Plex Sans",sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.42;background-image:linear-gradient(rgba(30,58,138,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(30,58,138,.045) 1px,transparent 1px);background-size:32px 32px}header{border-top:5px solid var(--blue)}nav{display:flex;justify-content:space-between;align-items:center;width:min(1080px,calc(100% - 40px));margin:auto;padding:22px 0;font:500 .78rem "IBM Plex Mono",monospace}nav a{color:var(--blue);text-decoration:none}nav a:first-child:before{content:"← "}.status{padding:5px 9px;color:#fff;background:var(--blue);border-radius:3px;letter-spacing:.04em;text-transform:uppercase}main{width:min(1080px,calc(100% - 40px));margin:5vh auto 80px}.hero{max-width:900px}.eyebrow{margin:0 0 14px;color:var(--blue);font:600 .78rem "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}h1{margin:0;font-size:clamp(3rem,9vw,7.5rem);line-height:.92;letter-spacing:-.065em}h2{max-width:820px;margin:24px 0 18px;font-size:clamp(1.35rem,3vw,2.2rem);font-weight:400;line-height:1.25}.authors{margin:0;color:var(--muted);font-size:1rem;line-height:1.7}.authors strong{color:var(--ink)}.venue{display:inline-block;margin-top:18px;padding:7px 11px;color:var(--blue);background:#e8eefb;border:1px solid #cddaf3;border-radius:3px;font:600 .78rem "IBM Plex Mono",monospace}.visuals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:54px;padding:12px;background:var(--paper);border:1px solid var(--line);box-shadow:0 18px 50px rgba(30,58,138,.08)}figure{position:relative;min-width:0;margin:0;overflow:hidden;background:#e9edf4;aspect-ratio:4/3}figure img{width:100%;height:100%;display:block;object-fit:cover}figcaption{position:absolute;left:8px;bottom:8px;padding:4px 7px;color:#fff;background:rgba(23,32,51,.78);font:500 .66rem "IBM Plex Mono",monospace;text-transform:uppercase}.notice{display:grid;grid-template-columns:auto 1fr;gap:22px;margin-top:22px;padding:24px 26px;background:var(--paper);border:1px solid var(--line)}.notice span{color:var(--blue);font:600 .72rem "IBM Plex Mono",monospace;text-transform:uppercase;white-space:nowrap}.notice p{margin:0;color:var(--muted);line-height:1.65}footer{width:min(1080px,calc(100% - 40px));margin:0 auto;padding:24px 0 34px;color:var(--muted);border-top:1px solid var(--line);font:400 .72rem "IBM Plex Mono",monospace}@media(max-width:700px){main{margin-top:3vh}.visuals{grid-template-columns:1fr}figure{aspect-ratio:16/10}.notice{grid-template-columns:1fr;gap:8px}}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GeoNeXt repurposes video generative models as unified geometry learners for depth and surface normal estimation.">
+  <title>GeoNeXt — Video Generative Models as Geometry Learner</title>
+  <link rel="stylesheet" href="styles.css?v=20260830-6">
 </head>
 <body>
-  <header><nav><a href="../../">Haosen Yang</a><span class="status">Coming soon</span></nav></header>
-  <main>
-    <section class="hero">
-      <p class="eyebrow">ECCV 2026</p>
-      <h1>GeoNeXt</h1>
-      <h2>Video Generative Models as Geometry Learner</h2>
-      <p class="authors"><strong>Haosen Yang</strong> · Jifei Song · Zhensong Zhang · Xiatian Zhu · Jiankang Deng</p>
-      <span class="venue">European Conference on Computer Vision 2026</span>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="GeoNeXt home"><span>Geo</span>NeXt</a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="conference reveal">ECCV 2026</div>
+      <h1 class="reveal">Video Generative Models<br><em>as Geometry Learner</em></h1>
+      <div class="authors reveal">
+        <span><a href="https://happy-hsy.github.io/" target="_blank" rel="noopener noreferrer">Haosen Yang</a><sup>1</sup></span>
+        <span><a href="https://scholar.google.com/citations?hl=en&amp;user=9a1PjCIAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer">Jifei Song</a><sup>1</sup></span>
+        <span><a href="https://zhangzhensong.github.io/" target="_blank" rel="noopener noreferrer">Zhensong Zhang</a><sup>2</sup></span>
+        <span><a href="https://x-up-lab.github.io/" target="_blank" rel="noopener noreferrer">Xiatian Zhu</a><sup>1*</sup></span>
+        <span><a href="https://jiankangdeng.github.io/" target="_blank" rel="noopener noreferrer">Jiankang Deng</a><sup>3*</sup></span>
+      </div>
+      <p class="affiliations reveal"><sup>1</sup>University of Surrey &nbsp; · &nbsp; <sup>2</sup>Independent Researcher &nbsp; · &nbsp; <sup>3</sup>Imperial College London</p>
+      <div class="actions reveal">
+        <button class="button primary" type="button" disabled>Paper <small>coming soon</small></button>
+        <a class="button" href="https://github.com/Creative-Intelligence-Studio/GeoNeXt" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="button" href="https://huggingface.co/happy0612/GeoNeXt" target="_blank" rel="noopener noreferrer">Models</a>
+      </div>
+
+      <div class="teaser-wrap reveal">
+        <div class="teaser-glow"></div>
+        <section class="mesh-showcase" aria-label="Interactive GeoNeXt mesh reconstruction">
+          <div class="mesh-mode-tabs" role="tablist" aria-label="Mesh appearance">
+            <button class="active" type="button" role="tab" aria-selected="true" data-mesh-mode="geometry"><span>⬡</span> Geometry</button>
+            <button type="button" role="tab" aria-selected="false" data-mesh-mode="color"><span>▧</span> RGB</button>
+          </div>
+          <div class="mesh-comparison-stage">
+            <article class="mesh-compare-panel">
+              <label for="mesh-method-left">Left method</label>
+              <select id="mesh-method-left" aria-label="Choose the method shown on the left"></select>
+              <div class="mesh-stage">
+                <canvas id="mesh-canvas-left" aria-label="Left interactive mesh. Drag to rotate and scroll to zoom."></canvas>
+                <div class="mesh-loading" id="mesh-loading-left">Building geometry…</div>
+              </div>
+            </article>
+            <article class="mesh-compare-panel">
+              <label for="mesh-method-right">Right method</label>
+              <select id="mesh-method-right" aria-label="Choose the method shown on the right"></select>
+              <div class="mesh-stage">
+                <canvas id="mesh-canvas-right" aria-label="Right interactive mesh. Drag to rotate and scroll to zoom."></canvas>
+                <div class="mesh-loading" id="mesh-loading-right">Building geometry…</div>
+              </div>
+            </article>
+            <div class="mesh-badge"><span>↻</span> Drag to rotate · Scroll to zoom</div>
+          </div>
+          <p class="mesh-note">Meshes are reconstructed directly from predicted depth and surface normals, then aligned to the MoGe-2 coordinate space for comparison.</p>
+          <div class="mesh-scenes" id="mesh-scenes" aria-label="Choose a scene"></div>
+        </section>
+      </div>
     </section>
-    <section class="visuals" aria-label="GeoNeXt preview">
-      <figure><img src="../../images/GeoNeXt/image.jpeg" alt="GeoNeXt input scene"><figcaption>Input</figcaption></figure>
-      <figure><img src="../../images/GeoNeXt/depth.png" alt="GeoNeXt depth prediction"><figcaption>Depth</figcaption></figure>
-      <figure><img src="../../images/GeoNeXt/normal.png" alt="GeoNeXt surface normal prediction"><figcaption>Normal</figcaption></figure>
+
+    <section id="overview" class="tldr-section section-shell reveal">
+      <div class="tldr-card">
+        <h2>TL;DR</h2>
+        <ul>
+          <li><strong>GeoNeXt</strong> repurposes an off-the-shelf <em>video generative model</em> as a geometry learner for monocular depth and surface-normal estimation.</li>
+          <li>It reformulates geometry estimation as <em>next-frame prediction</em>, leveraging the video model’s temporal priors to enable cross-frame interaction between appearance and geometry.</li>
+          <li>By co-generating the image, depth, and normals along a <em>shared denoising trajectory</em>, GeoNeXt achieves strong zero-shot generalization using only <strong>59K training samples</strong>.</li>
+        </ul>
+      </div>
     </section>
-    <section class="notice"><span>Project preview</span><p>The paper, method details, results, and code will be released after the arXiv submission. Please check back soon.</p></section>
+
+    <section id="method" class="method section-shell">
+      <div class="section-heading reveal"><p class="eyebrow">How it works</p><h2>Geometry as next frames</h2></div>
+      <figure class="framework-figure reveal" id="framework-figure">
+        <img src="assets/fig2_final.png" alt="GeoNeXt fine-tuning framework with frozen VAE encoding, joint image-depth-normal noising, GeoNeXt U-Net, and reconstruction objectives">
+        <figcaption>
+          <span>Figure 2</span>
+          <p><strong>Overview of the GeoNeXt <em>fine-tuning</em> protocol.</strong> (a) We start from the pretrained Stable Video Diffusion model and encode the RGB image <em>x</em>, depth <em>d</em>, and surface normal <em>n</em> into the latent space using the frozen Stable Diffusion VAE. (b) Noise is sampled and added to the latent <em>z</em>. The image latent is replicated across the geometry slots (depth and normal), and further conditioned by concatenating the geometry latents. (c) We fine-tune only the GeoNeXt U-Net. (d) The model is optimized with the standard diffusion objective over image, depth, and normal latents to ensure fine-grained alignment and consistency between image and geometry.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="results" class="results section-shell">
+      <div class="section-heading reveal"><p class="eyebrow">Unified prediction</p><h2>One model. Joint depth and normal prediction.</h2></div>
+      <div class="comparison reveal" id="joint-comparison">
+        <div class="comparison-toolbar"><div><span class="comparison-kicker">In the wild</span><h3>Joint depth–normal prediction</h3></div><div class="joint-toolbar"><div class="joint-model-switch" role="tablist" aria-label="GeoNeXt backbone"><button class="active" type="button" data-joint-model="wan">WAN</button><button type="button" data-joint-model="svd">SVD</button></div><div class="joint-case-nav"><button class="case-arrow" type="button" data-case-direction="prev" aria-label="Previous scene">‹</button><div class="case-tabs" data-tabs="joint"></div><button class="case-arrow" type="button" data-case-direction="next" aria-label="Next scene">›</button></div></div></div>
+        <div class="joint-grid">
+          <figure class="input-tile"><figcaption>Input</figcaption><img data-joint="input" alt="In-the-wild input"></figure>
+          <div class="method-column"><h4>GeoWizard</h4><figure><figcaption>Depth</figcaption><img data-joint="geowizard_depth" alt="GeoWizard depth"></figure><figure><figcaption>Normal</figcaption><img data-joint="geowizard_normal" alt="GeoWizard normal"></figure></div>
+          <div class="method-column ours-column"><h4><span class="method-name" id="geonext-variant">GeoNeXt-WAN</span></h4><figure><figcaption>Depth</figcaption><img data-joint="geonext_depth" alt="GeoNeXt-WAN depth"></figure><figure><figcaption>Normal</figcaption><img data-joint="geonext_normal" alt="GeoNeXt-WAN normal"></figure></div>
+        </div>
+        <p class="browser-caption"><span class="status-dot"></span> Hover over any image to compare the same region across all predictions. Scroll to zoom.</p>
+      </div>
+    </section>
+
+    <section class="benchmarks section-shell">
+      <div class="section-heading reveal"><p class="eyebrow">Benchmark comparisons</p><h2>Across scenes and modalities.</h2><p>Each benchmark is evaluated against its corresponding ground truth. Depth and surface-normal results are presented separately to preserve the correct evaluation setting.</p></div>
+      <div class="benchmark-switch reveal" role="tablist" aria-label="Benchmark modality"><button class="active" data-benchmark-mode="depth">Depth estimation</button><button data-benchmark-mode="normal">Surface normals</button></div>
+      <div class="comparison benchmark-comparison reveal">
+        <div class="comparison-toolbar benchmark-toolbar"><span class="comparison-kicker" id="benchmark-kicker">Depth benchmark</span><div class="toolbar-actions"><div class="case-tabs" data-tabs="benchmark"></div></div></div>
+        <div class="benchmark-grid" id="benchmark-grid"></div>
+        <p class="browser-caption"><span class="status-dot"></span> Hover over any image to compare the same region across all methods. Scroll to zoom.</p>
+      </div>
+    </section>
+
+    <section class="citation-section section-shell reveal" id="citation">
+      <div class="citation-heading">
+        <div><p class="eyebrow">Citation</p><h2>BibTeX</h2></div>
+        <button class="copy-bibtex" id="copy-bibtex" type="button">Copy BibTeX</button>
+      </div>
+      <pre class="bibtex-card"><code id="bibtex-entry">@inproceedings{yang2026geonext,
+  title     = {Video Generative Models as Geometry Learner},
+  author    = {Yang, Haosen and Song, Jifei and Zhang, Zhensong and Zhu, Xiatian and Deng, Jiankang},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</code></pre>
+    </section>
+
   </main>
-  <footer>GeoNeXt · ECCV 2026</footer>
+
+  <dialog class="image-lightbox" id="image-lightbox"><button type="button" aria-label="Close enlarged image">×</button><img alt="Enlarged comparison result"><p></p></dialog>
+  <script src="script.js?v=20260830-7"></script>
 </body>
 </html>
