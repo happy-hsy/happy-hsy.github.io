@@ -175,7 +175,7 @@ const meshMethods=[['geonext-wan','GeoNeXt-WAN'],['geonext-svd','GeoNeXt-SVD'],[
 
 function initMeshShowcase(){
   const base='assets/mesh_assets/comparison',cache=new Map();
-  const state={scene:0,mode:1,yaw:0,pitch:0,zoom:2.23,left:'geonext-wan',right:'moge'};
+  const state={scene:0,mode:0,yaw:0,pitch:0,zoom:2.23,left:'geonext-wan',right:'moge'};
   const vertexShader=`#version 300 es
     in vec3 aPosition;in vec3 aNormal;in vec3 aColor;uniform float uYaw,uPitch,uZoom,uAspect,uMode;out vec3 vColor;out float vLight;
     void main(){float cy=cos(uYaw),sy=sin(uYaw),cp=cos(uPitch),sp=sin(uPitch);mat3 ry=mat3(cy,0.,-sy,0.,1.,0.,sy,0.,cy);mat3 rx=mat3(1.,0.,0.,0.,cp,sp,0.,-sp,cp);vec3 p=rx*ry*aPosition;vec3 n=normalize(rx*ry*aNormal);float cameraZ=p.z-uZoom;float f=1.7320508,near=.01,far=20.;gl_Position=vec4(p.x*f/uAspect,p.y*f,-((far+near)/(far-near))*cameraZ-(2.*far*near/(far-near)),-cameraZ);vColor=mix(aColor,vec3(.72,.76,.75),uMode);vLight=.52+.48*abs(dot(n,normalize(vec3(.3,.55,1.))));}`;
